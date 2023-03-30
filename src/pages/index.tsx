@@ -31,6 +31,10 @@ export default function Home() {
           height={100}
           priority
         />
+        
+        </div>
+        <div className={styles.center}>
+          <h1 className={styles.title}>Coming Soon... </h1>
         </div>
 
         
