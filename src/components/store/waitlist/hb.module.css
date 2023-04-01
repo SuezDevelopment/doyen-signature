@@ -1,0 +1,107 @@
+.button {
+	border: none;
+	border-radius: 9999px;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 0.75rem 2rem;
+	position: relative;
+	text-transform: uppercase;
+	overflow: hidden;
+	background-color: #3c4b64;
+	color: #ffffff;
+	text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+	box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5),
+		inset 0px 0px 5px rgba(255, 255, 255, 0.5);
+	transform: scale(1);
+	transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
+		box-shadow 0.3s ease, text-shadow 0.3s ease;
+}
+
+.button:before,
+.button:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 9999px;
+	background: rgba(255, 255, 255, 0.1);
+	transform: scaleX(0);
+	transform-origin: center center;
+	transition: all 0.3s ease-in-out;
+}
+
+.button:before {
+	opacity: 0.6;
+}
+
+.button:hover {
+	color: #000000;
+	background-color: linear-gradient(
+		45deg,
+		rgba(255, 255, 255, 0.8),
+		rgba(255, 255, 255, 0.3),
+		rgba(255, 255, 255, 0.6)
+	);
+	text-shadow: none;
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7),
+		inset 0px 0px 10px rgba(255, 255, 255, 0.7);
+}
+
+.button:hover:before {
+	transform: scaleX(1);
+}
+
+.button:after {
+	opacity: 0;
+	background: linear-gradient(
+		45deg,
+		rgba(255, 255, 255, 0.4),
+		rgba(255, 255, 255, 0.1),
+		rgba(255, 255, 255, 0.4)
+	);
+}
+
+.button:hover:after {
+	opacity: 1;
+	transform: scaleX(1);
+	transition: all 0.5s ease, opacity 1s ease;
+}
+
+.button:focus {
+	outline: none;
+	box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5),
+		inset 0px 0px 5px rgba(255, 255, 255, 0.5), 0 0 0 3px rgba(60, 75, 100, 0.3);
+}
+
+@keyframes glow {
+	0% {
+		box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5),
+			inset 0px 0px 5px rgba(255, 255, 255, 0.5);
+	}
+	50% {
+		box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7),
+			inset 0px 0px 10px rgba(255, 255, 255, 0.7);
+	}
+	100% {
+		box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5),
+			inset 0px 0px 5px rgba(255, 255, 255, 0.5);
+	}
+}
+
+.button {
+	animation: glow 2s infinite ease-in-out;
+}
+
+.button:active {
+	transform: scale(0.95) translateY(2px);
+	background: linear-gradient(
+		45deg,
+		rgba(255, 255, 255, 0.6),
+		rgba(255, 255, 255, 0.2),
+		rgba(255, 255, 255, 0.6)
+	);
+}
