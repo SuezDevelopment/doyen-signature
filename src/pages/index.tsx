@@ -1,43 +1,49 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import { Open_Sans } from 'next/font/google'
+import clsx from "clsx";
+import HeroButton from '@/components/store/waitlist/HeroButton';
+import HeroText from '@/components/store/waitlist/HeroText';
+import WaitingCounter from '@/components/store/waitlist/waitCounter';
 
-const inter = Inter({ subsets: ['latin'] })
-
+const inter = Open_Sans({
+	subsets: ["cyrillic"],
+	weight: ["400", "500", "600"],
+});
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Signatures by Doyen | BRIDALS▪️CUSTOM•MADE▪️LUXURY | Coming Soon </title>
-        <meta name="description" content="Doyen Signature BRIDALS▪️CUSTOM•MADE▪️LUXURY" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Doyen Signature&nbsp;
-            <code className={styles.code}>BRIDALS▪️CUSTOM•MADE▪️LUXURY</code>
+      <main
+        className={clsx(
+          "container mx-auto flex min-h-screen flex-col items-center justify-between p-4",
+          inter.className
+        )}
+      >
+        <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+          <p className="fixed left-0 top-0 flex w-full justify-center bg-gradient-to-b pb-6 pt-8 backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:bg-zinc-800/30 uppercase text-white font-bold tracking-widest text-4xl italic">
+            Signatures by Doyen
           </p>
+          <div className="fixed bottom-0 left-0 flex h-36 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+            <p className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0">
+              © Signatures by Doyen
+            </p>
+          </div>
         </div>
 
-        <div className={styles.center}>
-        <Image
-          src="https://instagram.flos1-2.fna.fbcdn.net/v/t51.2885-19/17268093_268178286957175_3669541597239836672_a.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flos1-2.fna.fbcdn.net&_nc_cat=107&_nc_ohc=32b5E9m-2QgAX9w_6_M&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfCAwf2bX52IaN9Hw6ZqTnx97PahfQDPkG4pwS3v_XIzxA&oe=6429B7F8&_nc_sid=1527a3"
-          alt="Doyen Signatures"
-          className={styles.vercelLogo}
-          width={100}
-          height={100}
-          priority
-        />
-        
-        </div>
-        <div className={styles.center}>
-          <h1 className={styles.title}>Coming Soon... </h1>
+        <div className="w-full">
+          <HeroText />
         </div>
 
-        
+        <div className="flex place-items-center">
+          <HeroButton />
+        </div>
+
+        <div className="text-sm italic mt-10">
+        Join the growing community of individuals eager to uncover their unique signature style.
+        </div>
+        <div className="">
+          <WaitingCounter />
+        </div>
       </main>
     </>
   )

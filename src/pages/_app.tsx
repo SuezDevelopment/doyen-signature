@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       <NextUIProvider>
         <Component {...pageProps} />
-      </NextUIProvider>
+      </NextUIProvider> 
     </NextThemesProvider>
   )
 }
