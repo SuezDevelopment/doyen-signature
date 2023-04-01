@@ -19,7 +19,7 @@ const Footer = () => {
 						href="https://ng.linkedin.com/in/adedoyin-olayode-039521a4"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
+						className="animate-bounce text-gray-600 hover:text-gray-800 transition-colors duration-200"
 					>
 						<IconBrandLinkedin size="1.5em" />
 					</a>
@@ -27,7 +27,7 @@ const Footer = () => {
 						href="https://twitter.com/doyenyen_"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
+						className="animate-bounce text-blue-600 hover:text-blue-800 transition-colors duration-200"
 					>
 						<IconBrandTwitterFilled size="1.5em" />
 					</a>
@@ -35,7 +35,7 @@ const Footer = () => {
 						href="https://www.instagram.com/signaturesbydoyen/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-indigo-500 hover:text-indigo-800 transition-colors duration-200"
+						className="animate-bounce text-indigo-500 hover:text-indigo-800 transition-colors duration-200"
 					>
 						<IconBrandInstagram size="1.5em" />
 					</a>
@@ -43,7 +43,7 @@ const Footer = () => {
 						href="https://www.instagram.com/sbdrtw/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-indigo-500 hover:text-indigo-800 transition-colors duration-200"
+						className="animate-bounce text-indigo-500 hover:text-indigo-800 transition-colors duration-200"
 					>
 						<IconBrandInstagram size="1.5em" />
 					</a>
