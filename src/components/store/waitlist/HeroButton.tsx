@@ -41,7 +41,7 @@ export default function HeroButton(){
 			})();
 
 			setTimeout(() => {
-				<WaitlistModal />
+				WaitlistModal()
 			}, 200);
 		}
 	}, []);
