@@ -5,7 +5,9 @@ import clsx from "clsx";
 import HeroButton from '@/components/store/waitlist/HeroButton';
 import HeroText from '@/components/store/waitlist/HeroText';
 import WaitingCounter from '@/components/store/waitlist/waitCounter';
-
+import Footer from '@/components/store/waitlist/footer';
+import Gallery from '@/components/store/waitlist/Gallery';
+import UserReviews from '@/components/store/waitlist/UsersReview';
 const inter = Open_Sans({
 	subsets: ["cyrillic"],
 	weight: ["400", "500", "600"],
@@ -13,6 +15,9 @@ const inter = Open_Sans({
 export default function Home() {
   return (
     <>
+    <Head>
+      <title>Signatures by Doyen | BRIDALS▪️CUSTOM•MADE▪️LUXURY▪️TRAINING | Coming Soon </title>
+    </Head>
       <main
         className={clsx(
           "container mx-auto flex min-h-screen flex-col items-center justify-between p-4",
@@ -44,6 +49,18 @@ export default function Home() {
         <div className="">
           <WaitingCounter />
         </div>
+
+        <div className="w-full">
+          <Gallery />
+        </div>
+
+        <div className="w-full">
+          <UserReviews />
+        </div>
+
+        <div className="h-24"></div>
+
+			  <Footer />
       </main>
     </>
   )
