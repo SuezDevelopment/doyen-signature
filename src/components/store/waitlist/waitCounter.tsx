@@ -37,7 +37,7 @@ export default function WaitingCounter() {
 			people that have joined the waitlist to{" "}
 			<span className="underline decoration-dashed group relative">
 				<span className="hidden group-hover:block absolute top-[-120%] left-0 w-fit h-full bg-white text-black text-sm rounded px-2">
-				    🤩🤩🤩
+				    🤩
 				</span>
 				discover their signature style.
 			</span>
@@ -51,7 +51,6 @@ function Counter({ from, to }: { from: number; to: number }) {
 
 	useEffect(() => {
 		const node = nodeRef.current;
-
 		const controls = animate(from, to, {
 			duration: 1,
 			onUpdate(value) {

@@ -25,7 +25,7 @@ export default function Home() {
         )}
       >
         <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-          <p className="fixed left-0 top-0 flex w-full justify-center bg-gradient-to-b pb-6 pt-8 backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:bg-zinc-800/30 uppercase text-white font-bold tracking-widest text-4xl italic">
+          <p className="fixed left-0 top-0 flex w-full justify-center bg-gradient-to-b pb-6 pt-4 backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:bg-zinc-800/30 uppercase text-white font-bold tracking-widest text-2xl italic">
             Signatures by Doyen
           </p>
           <div className="fixed bottom-0 left-0 flex h-36 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
