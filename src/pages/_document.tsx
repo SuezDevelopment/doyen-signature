@@ -27,7 +27,6 @@ class MyDocument extends Document {
          />
          <Head>
             <meta name="description" content="Our fashion clothing brand offers stylish clothing that celebrates and accentuates the beauty of every woman, regardless of their body shape or size. We cater to all body types, and our collections feature trendy and timeless pieces that are sure to make you feel confident and empowered." key="desc" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" type="image/x-icon" href="https://signaturesbydoyen.org/favicon.ico" />
             <link rel="shortcut icon" type="image/x-icon" href="https://signaturesbydoyen.org/favicon.ico" />
             <link rel="icon" type="image/png" sizes="32x32" href="https://signaturesbydoyen.org/favicon-32x32.png" />
