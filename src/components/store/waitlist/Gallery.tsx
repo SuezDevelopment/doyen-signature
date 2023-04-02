@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getAllSignaturesByDoyenPost } from "@/utils/getuserposts";
 import { IPost } from "@/utils/IPosts";
+import Marquee from "react-fast-marquee";
 
 
 export default function Gallery() {
