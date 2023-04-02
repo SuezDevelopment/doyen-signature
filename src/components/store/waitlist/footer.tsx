@@ -3,7 +3,8 @@ import {
 	IconBrandLinkedin,
 	IconBrandInstagram,
 	IconBrandTwitterFilled,
-    IconBrandGmail
+    IconBrandGmail,
+	IconBrandWhatsapp
 } from "@tabler/icons-react";
 
 const Footer = () => {
@@ -16,10 +17,18 @@ const Footer = () => {
 				</div>
                 <div className="flex space-x-4">
 					<a
+						href="https://wa.me/+447423202952/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="animate-bounce text-green-600 hover:text-green-800 transition-colors duration-200"
+					>
+						<IconBrandWhatsapp size="1.5em" />
+					</a>
+					<a
 						href="https://ng.linkedin.com/in/adedoyin-olayode-039521a4"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="animate-bounce text-gray-600 hover:text-gray-800 transition-colors duration-200"
+						className="animate-bounce text-blue-600 hover:text-blue-800 transition-colors duration-200"
 					>
 						<IconBrandLinkedin size="1.5em" />
 					</a>
