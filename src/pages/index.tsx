@@ -12,6 +12,8 @@ const inter = Open_Sans({
 	subsets: ["cyrillic"],
 	weight: ["400", "500", "600"],
 });
+
+
 export default function Home() {
   return (
     <>
@@ -40,11 +42,11 @@ export default function Home() {
         </div>
 
         <div className="flex place-items-center">
-          <HeroButton />
+          <HeroButton submitSubscriber={() => undefined} />
         </div>
 
         <div className="text-sm italic mt-10">
-        Join the growing community of individuals eager to uncover their unique signature style.
+          Join the growing community of individuals eager to uncover their unique signature style.
         </div>
         <div className="">
           <WaitingCounter />
