@@ -1,19 +1,6 @@
 'use-client';
 
-import { useEffect, useState } from "react";
-import { getAllSignaturesByDoyenPost } from "@/utils/getuserposts";
-import { IPost } from "@/utils/IPosts";
-import Marquee from "react-fast-marquee";
-
-
 export default function Gallery() {
-    const [gallery, setGallery] = useState<any | Array<IPost>>([]);
-    const posts = getAllSignaturesByDoyenPost();
-    useEffect(() => {
-        posts && posts.then(post => setGallery(post))
-        gallery && console.log(gallery)
-    },[posts, gallery])
-
     return(
         <>
             <div className="my-[5rem]">

@@ -5,50 +5,51 @@ import styles from "./hb.module.css";
 // @ts-ignore
 import confetti from "canvas-confetti";
 import { useCallback, Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from '@headlessui/react'
+import { Modal, Button, Text, Input, Loading, PressEvent, } from "@nextui-org/react";
+import { IconMail, IconUser } from "@tabler/icons-react";
+import { getKeysWithoutValues } from '@/utils/tools';
 
-export default function HeroButton(){
-	const [open, setOpen] = useState(true)
-  	const cancelButtonRef = useRef(null)
+type WithChildren<T = {}> = 
+  T & { children?: React.ReactNode };
 
-	const showModal = () => {
-		return(
-			<Transition.Root show={open} as={Fragment}>
-				 <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
-					<Transition.Child
-						as={Fragment}
-						enter="ease-out duration-300"
-						enterFrom="opacity-0"
-						enterTo="opacity-100"
-						leave="ease-in duration-200"
-						leaveFrom="opacity-100"
-						leaveTo="opacity-0"
-					>
-						<Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-					</Transition.Child>
-					<div className="fixed inset-0 z-40 overflow-y-auto">
-						<div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-						<Transition.Child
-							as={Fragment}
-							enter="ease-out duration-300"
-							enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-							enterTo="opacity-100 translate-y-0 sm:scale-100"
-							leave="ease-in duration-200"
-							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-						>
-							 <Dialog.Panel className="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-								<Dialog.Title className="text-lg leading-6 font-medium text-gray-900">
-									Join the Waitlist
-								</Dialog.Title>
-							 </Dialog.Panel>
-						</Transition.Child>
-						</div>
-					</div>
-				 </Dialog>
-	
-			</Transition.Root>
-		);
+type AddSubscriberProps = WithChildren<{
+  submitSubscriber: (obj:any) => any
+}>
+
+export default function HeroButton({submitSubscriber}:AddSubscriberProps){
+	const [visible, setVisible] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [subscriber, setSubscriber] = useState({
+		first_name: "",
+		email: "",
+	});
+	const handler = () => setVisible(true);
+
+	const handleChange = (event: any) => {
+        const targetName = event.target.name;
+        const targetValue = event.target.value;
+        setSubscriber((values) => ({ ...values, [targetName]: targetValue }));
+        console.log([targetName], targetValue)
+    };
+
+	const closeHandler = () => {
+		setVisible(false);
+		console.log("closed");
+	};
+
+	const submitHandler = async(e: PressEvent) => {
+		setLoading(true);
+		let emptyvalues = getKeysWithoutValues(subscriber);
+		if (emptyvalues.length > 0) {
+			setLoading(false);
+			return setVisible(true);
+		} else {
+			await submitSubscriber(subscriber)
+			setVisible(false);
+			console.log('closed');
+			return showConfetti()
+		}
+		
 	}
 
     const showConfetti = useCallback(() => {
@@ -82,24 +83,81 @@ export default function HeroButton(){
 					requestAnimationFrame(frame);
 				}
 			})();
-
-			setTimeout(() => {
-				showModal()
-			}, 200);
 		}
-	}, [showModal]);
+	}, []);
+
+	const nullFunc = () => {};
 
     return (
 		<div>
-			<button
+			<Button
 				className={clsx(
 					styles.button,
 					"text-[1rem] sm:text-[1.5rem] md:text-[2rem]"
 				)}
-				onClick={showModal}
+				auto shadow onPress={handler}
 			>
 				Join the Waitlist
-			</button>
+			</Button>
+			<Modal
+				closeButton
+				blur
+				preventClose
+				aria-labelledby="modal-title"
+				open={visible}
+				onClose={closeHandler}
+				css={{
+					backgroundImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E"
+				}}
+			>
+				<Modal.Header>
+					<Text id="modal-title" size={18}>
+						Subscribe to our &nbsp;
+						<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
+                            #Waitlist
+                        </span>
+					</Text>
+				</Modal.Header>
+				<Modal.Body>
+					<Input
+						clearable
+						// bordered
+						fullWidth
+						color="primary"
+						size="lg"
+						name="first_name"
+						type="text"
+						onChange={e => handleChange(e)}
+						value={subscriber.first_name}
+						placeholder="First Name"
+						contentLeft={<IconUser size="1.5em" />}
+					/>
+					<Input
+						clearable
+						// bordered
+						fullWidth
+						color="primary"
+						size="lg"
+						type="email"
+						name="email"
+						onChange={e => handleChange(e)}
+						value={subscriber.email}
+						placeholder="Email Address"
+						contentLeft={<IconMail size="1.5em" />}
+					/>
+				</Modal.Body>
+				<Modal.Footer>
+					<Button 
+						className={clsx(
+							styles.button,
+							"text-[1rem] sm:text-[1.5rem] md:text-[2rem]"
+						)}
+						auto onPress= {!loading ? submitHandler : nullFunc}
+					>
+						{!loading ? 'Join' : <Loading type="points" />}
+					</Button>
+				</Modal.Footer>
+			</Modal>
 		</div>
 	);
 
