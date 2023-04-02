@@ -12,7 +12,7 @@ export default function Gallery() {
     useEffect(() => {
         posts && posts.then(post => setGallery(post))
         gallery && console.log(gallery)
-    },[posts, gallery])
+    },[gallery])
 
     return(
         <>

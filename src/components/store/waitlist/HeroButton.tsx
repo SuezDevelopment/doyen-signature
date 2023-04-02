@@ -5,52 +5,18 @@ import styles from "./hb.module.css";
 // @ts-ignore
 import confetti from "canvas-confetti";
 import { useCallback, Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from '@headlessui/react'
+import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
+import { IconMail, IconUser } from "@tabler/icons-react";
 
 export default function HeroButton(){
-	const [open, setOpen] = useState(true)
-  	const cancelButtonRef = useRef(null)
+	const [visible, setVisible] = useState(false);
+	const handler = () => setVisible(true);
 
-	const showModal = () => {
-		return(
-			<Transition.Root show={open} as={Fragment}>
-				 <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
-					<Transition.Child
-						as={Fragment}
-						enter="ease-out duration-300"
-						enterFrom="opacity-0"
-						enterTo="opacity-100"
-						leave="ease-in duration-200"
-						leaveFrom="opacity-100"
-						leaveTo="opacity-0"
-					>
-						<Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-					</Transition.Child>
-					<div className="fixed inset-0 z-40 overflow-y-auto">
-						<div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-						<Transition.Child
-							as={Fragment}
-							enter="ease-out duration-300"
-							enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-							enterTo="opacity-100 translate-y-0 sm:scale-100"
-							leave="ease-in duration-200"
-							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-						>
-							 <Dialog.Panel className="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-								<Dialog.Title className="text-lg leading-6 font-medium text-gray-900">
-									Join the Waitlist
-								</Dialog.Title>
-							 </Dialog.Panel>
-						</Transition.Child>
-						</div>
-					</div>
-				 </Dialog>
-	
-			</Transition.Root>
-		);
-	}
-
+	const closeHandler = () => {
+		showConfetti()
+		setVisible(false);
+		console.log("closed");
+	};
     const showConfetti = useCallback(() => {
 		if (typeof window !== "undefined") {
 			const end = Date.now() + 100;
@@ -82,24 +48,64 @@ export default function HeroButton(){
 					requestAnimationFrame(frame);
 				}
 			})();
-
-			setTimeout(() => {
-				showModal()
-			}, 200);
 		}
-	}, [showModal]);
+	}, []);
 
     return (
 		<div>
-			<button
+			<Button
 				className={clsx(
 					styles.button,
 					"text-[1rem] sm:text-[1.5rem] md:text-[2rem]"
 				)}
-				onClick={showModal}
+				auto shadow onPress={handler}
 			>
 				Join the Waitlist
-			</button>
+			</Button>
+			<Modal
+				closeButton
+				blur
+				aria-labelledby="modal-title"
+				open={visible}
+				onClose={closeHandler}
+			>
+				<Modal.Header>
+					<Text id="modal-title" size={18}>
+						Subscribe to our
+						<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
+                            #Waitlist
+                        </span>
+					</Text>
+				</Modal.Header>
+				<Modal.Body>
+					<Input
+						clearable
+						// bordered
+						fullWidth
+						color="primary"
+						size="lg"
+						type="text"
+						placeholder="First Name"
+						contentLeft={<IconUser size="1.5em" />}
+					/>
+
+					<Input
+						clearable
+						// bordered
+						fullWidth
+						color="primary"
+						size="lg"
+						type="email"
+						placeholder="Email Address"
+						contentLeft={<IconMail size="1.5em" />}
+					/>
+				</Modal.Body>
+				<Modal.Footer>
+					<Button auto onPress={closeHandler}>
+						Join
+					</Button>
+				</Modal.Footer>
+			</Modal>
 		</div>
 	);
 
