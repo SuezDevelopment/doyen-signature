@@ -87,7 +87,7 @@ export default function HeroButton(){
 				showModal()
 			}, 200);
 		}
-	}, []);
+	}, [showModal]);
 
     return (
 		<div>
