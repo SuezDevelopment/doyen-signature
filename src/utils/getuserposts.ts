@@ -21,6 +21,8 @@ async function getContext(target:string): Promise<IContext> {
 export async function getAllSignaturesByDoyenPost(){
     await getContext(target).then(async(ctx) =>{
         const user = await IGAPI.getUser(target, ctx)
-        return await IGAPI.getAllUserPosts(user, ctx, {first: 12, after: null})
+        const posts = await IGAPI.getAllUserPosts(user, ctx, {first: 12, after: null})
+        writeFileSync("output_posts.json", JSON.stringify(posts), { encoding: "utf-8", flag: "w+" })
+        return posts
     }).catch(e => console.log(e))
 }
