@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { getAllSignaturesByDoyenPost } from "@/utils/getuserposts";
 import { IPost } from "@/utils/IPosts";
+
+
 export default function Gallery() {
     const [gallery, setGallery] = useState<any | Array<IPost>>([]);
     const posts = getAllSignaturesByDoyenPost();

@@ -24,6 +24,7 @@
     "eslint": "^8.37.0",
     "eslint-config-next": "^13.2.4",
     "framer-motion": "^10.10.0",
+    "fs": "^0.0.1-security",
     "instafeed.js": "^2.0.0-rc3",
     "instagram-without-api-node": "^1.0.2",
     "lodash": "^4.17.21",
