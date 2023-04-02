@@ -26,7 +26,7 @@ export default function Gallery() {
                     </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10">
-                    <div className="flex flex-col items-center">
+                    {/* <div className="flex flex-col items-center">
                         <div className="py-12 animate-marquee whitespace-nowrap">
                             <span className="mx-4 text-4xl">Marquee Item 1</span>
                             <span className="mx-4 text-4xl">Marquee Item 2</span>
@@ -41,7 +41,7 @@ export default function Gallery() {
                             <span className="mx-4 text-4xl">Marquee Item 14</span>
                             <span className="mx-4 text-4xl">Marquee Item 15</span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
