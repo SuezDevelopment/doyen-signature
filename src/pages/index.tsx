@@ -1,13 +1,12 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Open_Sans } from 'next/font/google'
 import clsx from "clsx";
-import HeroButton from '@/components/store/waitlist/HeroButton';
-import HeroText from '@/components/store/waitlist/HeroText';
-import WaitingCounter from '@/components/store/waitlist/waitCounter';
-import Footer from '@/components/store/waitlist/footer';
-import Gallery from '@/components/store/waitlist/Gallery';
-import UserReviews from '@/components/store/waitlist/UsersReview';
+import HeroButton from '@/components/waitlist/HeroButton';
+import HeroText from '@/components/waitlist/HeroText';
+import WaitingCounter from '@/components/waitlist/waitCounter';
+import Footer from '@/components/waitlist/footer';
+import Gallery from '@/components/waitlist/Gallery';
+import UserReviews from '@/components/waitlist/UsersReview';
 import { useEffect, useState } from 'react';
 const inter = Open_Sans({
 	subsets: ["cyrillic"],

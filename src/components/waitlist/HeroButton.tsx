@@ -71,7 +71,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 		if (typeof window !== "undefined") {
 			const end = Date.now() + 100;
 			const config: confetti.Options = {
-				particleCount: 25,
+				particleCount: 35,
 				startVelocity: 90,
 				angle: 60,
 				spread: 60,
