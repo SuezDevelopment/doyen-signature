@@ -19,9 +19,11 @@ export default function Home() {
   const subscribe = async({fn,em}:any) =>{
     await fetch('https://api.signaturesbydoyen.org/v1/subscribe/new',{
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
         'X-POST-KEY': process.env.POST_KEY || "",
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
         fn,

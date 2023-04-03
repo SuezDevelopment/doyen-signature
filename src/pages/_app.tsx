@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import React from 'react'
-import type { AppContext, AppInitialProps, AppProps } from 'next/app'
+import type {AppProps } from 'next/app'
 import { NextUIProvider, createTheme } from '@nextui-org/react';
 import dynamic from "next/dynamic";
 // import Alert from '@/components/alert';

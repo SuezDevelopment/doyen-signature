@@ -38,7 +38,7 @@ export default function HeroText() {
 			)}
 		>
 			<span className="font-bold">Signatures by Doyen</span>{" "}
-			<span className="text-gray-500">
+			<span className="text-white-500">
 				<TypeIt
 					options={{
 						loop: true,
@@ -52,7 +52,7 @@ export default function HeroText() {
 				/>
 				<span
 					className={clsx(
-						"ml-2 inline-block w-[0.5rem] bg-gray-500 animate-pulse translate-y-[20%]",
+						"ml-2 inline-block w-[0.5rem] bg-white-500 animate-pulse translate-y-[20%]",
 						"h-[2rem] sm:h-[3rem] md:h-[4rem] lg:h-[5rem] xl:h-[5rem]"
 					)}
 				></span>
