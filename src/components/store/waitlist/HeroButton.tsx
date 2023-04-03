@@ -61,7 +61,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				setError(data.message);
 				setTimeout(() => {
 					setError(null);
-				}, 2000)
+				}, 5000)
 			})
 		}
 		
@@ -130,7 +130,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 					styles.modal_bg,
 				)}
 			>
-				<Modal.Header>
+				<Modal.Header>	
 					<Col>
 						<Text b id="modal-title" size={18} >
 							Subscribe to our &nbsp;
@@ -138,8 +138,13 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 								#Waitlist
 							</span>
 						</Text>
-						{error && <Text b aria-label="error-text" color="red" css={{textAlign: 'center', my: "$5"}}>{error}</Text>}
-						{message && <Text b aria-label="message-text" color="green" css={{textAlign: 'center', my: "$5"}}>{message}</Text>}
+						<Row
+							justify="center"
+							align="center"
+						>
+							{error && <Text b aria-label="error-text" color="red" css={{textAlign: 'center', my: "$5"}}>{error}</Text>}
+							{message && <Text b aria-label="message-text" color="green" css={{textAlign: 'center', my: "$5"}}>{message}</Text>}
+						</Row>
 					</Col>
 				</Modal.Header>
 				<Modal.Body>

@@ -40,12 +40,12 @@
 }
 
 .button:hover {
-	color: #000000;
+	color: #06214e;
 	background-color: linear-gradient(
 		45deg,
-		rgba(255, 255, 255, 0.8),
-		rgba(255, 255, 255, 0.3),
-		rgba(255, 255, 255, 0.6)
+		rgba(244, 255, 163, 0.8),
+		rgba(244, 255, 163, 0.3),
+		rgba(244, 255, 163, 0.6)
 	);
 	text-shadow: none;
 	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7),
