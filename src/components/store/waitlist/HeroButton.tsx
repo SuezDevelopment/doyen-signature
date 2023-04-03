@@ -5,7 +5,7 @@ import styles from "./hb.module.css";
 // @ts-ignore
 import confetti from "canvas-confetti";
 import { useCallback, Fragment, useRef, useState } from "react";
-import { Modal, Button, Text, Input, Loading, PressEvent, } from "@nextui-org/react";
+import { Modal, Button, Text, Input, Loading, PressEvent, Row, Col, } from "@nextui-org/react";
 import { IconMail, IconUser } from "@tabler/icons-react";
 import { getKeysWithoutValues } from '@/utils/tools';
 
@@ -20,7 +20,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 	const [visible, setVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
-	const [message, setMessage] = useState("");
+	const [message, setMessage] = useState(null);
 	const [subscriber, setSubscriber] = useState({
 		first_name: "",
 		email: "",
@@ -31,7 +31,6 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
         const targetName = event.target.name;
         const targetValue = event.target.value;
         setSubscriber((values) => ({ ...values, [targetName]: targetValue }));
-        console.log([targetName], targetValue)
     };
 
 	const closeHandler = () => {
@@ -60,6 +59,9 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				}
 				setLoading(false);
 				setError(data.message);
+				setTimeout(() => {
+					setError(null);
+				}, 2000)
 			})
 		}
 		
@@ -98,6 +100,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 			})();
 
 			setTimeout(() => {
+				setMessage(null)
 				setVisible(false);
 			}, 2000)
 		}
@@ -128,14 +131,16 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				)}
 			>
 				<Modal.Header>
-					<Text b id="modal-title" size={18}>
-						Subscribe to our &nbsp;
-						<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
-                            #Waitlist
-                        </span>
-					</Text>
-					{error && <Text b aria-label="error-text" color="red" css={{textAlign: 'center'}}>{error}</Text>}
-					{message && <Text b aria-label="message-text" color="green" css={{textAlign: 'center'}}>{message}</Text>}
+					<Col>
+						<Text b id="modal-title" size={18} >
+							Subscribe to our &nbsp;
+							<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
+								#Waitlist
+							</span>
+						</Text>
+						{error && <Text b aria-label="error-text" color="red" css={{textAlign: 'center', my: "$5"}}>{error}</Text>}
+						{message && <Text b aria-label="message-text" color="green" css={{textAlign: 'center', my: "$5"}}>{message}</Text>}
+					</Col>
 				</Modal.Header>
 				<Modal.Body>
 					<Input
