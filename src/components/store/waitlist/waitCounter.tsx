@@ -9,10 +9,10 @@ export default function WaitingCounter() {
 		const intervalId = setInterval(() => {
 			setFrom(to);
 			const date = Date.now();
-            const people = Math.floor((date - 1680370000000) / 10);
+            const people = 1;
 			const randomAddition = Math.floor(Math.random() * 10); // 0-10 people per second
 			setTo(people + randomAddition);
-		}, 2000);
+		}, 9000);
 
 		return () => {
 			clearInterval(intervalId);
