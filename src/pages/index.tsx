@@ -20,7 +20,8 @@ export default function Home() {
     await fetch('https://api.signaturesbydoyen.org/v1/subscribe/new',{
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-POST-KEY': process.env.POST_KEY || "",
       },
       body: JSON.stringify({
         fn,

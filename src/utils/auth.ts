@@ -218,7 +218,7 @@ async function grpahQLAuth(ctx: IContext, docId: string): Promise<boolean> {
     return res.data.ig_browser_terminal_consent_mutation.success
 }
 
-export default async (target: string): Promise<IContext> => {
+export default async function launch(target: string): Promise<IContext> {
     const page = await getUserPage(target),
         target_id = getTargetId(page),
         ig_app_id = getIGAppId(page),
