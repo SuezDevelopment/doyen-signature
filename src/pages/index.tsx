@@ -8,6 +8,7 @@ import WaitingCounter from '@/components/store/waitlist/waitCounter';
 import Footer from '@/components/store/waitlist/footer';
 import Gallery from '@/components/store/waitlist/Gallery';
 import UserReviews from '@/components/store/waitlist/UsersReview';
+import { useEffect } from 'react';
 const inter = Open_Sans({
 	subsets: ["cyrillic"],
 	weight: ["400", "500", "600"],
@@ -15,6 +16,22 @@ const inter = Open_Sans({
 
 
 export default function Home() {
+  const subscribe = async({fn,em}:any) =>{
+    await fetch('https://api.signaturesbydoyen.org/v1/subscribe/new',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        fn,
+        em
+      })
+    }).then(res => res.json()).then(data => {
+      console.log(data)
+      return data
+    })
+  }
+
   return (
     <>
     <Head>
@@ -42,7 +59,7 @@ export default function Home() {
         </div>
 
         <div className="flex place-items-center">
-          <HeroButton submitSubscriber={() => undefined} />
+          <HeroButton submitSubscriber={subscribe} />
         </div>
 
         <div className="text-sm italic mt-10">
