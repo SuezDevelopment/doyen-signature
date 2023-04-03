@@ -8,7 +8,7 @@ import WaitingCounter from '@/components/store/waitlist/waitCounter';
 import Footer from '@/components/store/waitlist/footer';
 import Gallery from '@/components/store/waitlist/Gallery';
 import UserReviews from '@/components/store/waitlist/UsersReview';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 const inter = Open_Sans({
 	subsets: ["cyrillic"],
 	weight: ["400", "500", "600"],
@@ -16,22 +16,32 @@ const inter = Open_Sans({
 
 
 export default function Home() {
-  const subscribe = async({fn,em}:any) =>{
-    await fetch('https://api.signaturesbydoyen.org/v1/subscribe/new',{
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-POST-KEY': process.env.POST_KEY || "",
-      },
-      body: JSON.stringify({
-        fn,
-        em
-      })
-    }).then(res => res.json()).then(data => {
-      console.log(data)
-      return data
-    })
+  const [res_data, setData] = useState(null);
+  const [error, setError] = useState<any | undefined>(null)
+  
+  interface subscriber {
+    first_name: string;
+    email: string;
+  }
+  const subscribe = async(obj: subscriber) =>{
+    try {
+      const res = await fetch('https://api.signaturesbydoyen.org/v1/subscribe/new', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-POST-KEY': process.env.POST_KEY || "",
+        },
+        body: JSON.stringify(obj),
+      });
+      const data = await res.json();
+      setData(data);
+      console.log(data);
+      return data;
+    } catch (error: any) {
+      console.log(error.message);
+      setError(error.message);
+    }
   }
 
   return (
