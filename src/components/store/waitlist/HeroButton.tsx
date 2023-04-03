@@ -19,6 +19,8 @@ type AddSubscriberProps = WithChildren<{
 export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 	const [visible, setVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
+	const [message, setMessage] = useState("");
 	const [subscriber, setSubscriber] = useState({
 		first_name: "",
 		email: "",
@@ -48,14 +50,16 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				console.log(data);
 				if (data.status === true) {
 					setLoading(false);
+                    setError(null);
+                    setMessage(data.message);
                     setSubscriber({
                         first_name: "",
                         email: "",
                     });
-					setVisible(false);
 					return showConfetti()
 				}
-                
+				setLoading(false);
+				setError(data.message);
 			})
 		}
 		
@@ -92,6 +96,10 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 					requestAnimationFrame(frame);
 				}
 			})();
+
+			setTimeout(() => {
+				setVisible(false);
+			}, 2000)
 		}
 	}, []);
 
@@ -126,6 +134,8 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
                             #Waitlist
                         </span>
 					</Text>
+					{error && <Text b aria-label="error-text" color="red" css={{textAlign: 'center'}}>{error}</Text>}
+					{message && <Text b aria-label="message-text" color="green" css={{textAlign: 'center'}}>{message}</Text>}
 				</Modal.Header>
 				<Modal.Body>
 					<Input

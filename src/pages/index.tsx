@@ -32,8 +32,11 @@ export default function Home() {
     }
   }
   useEffect(() => {
-    fetchCount()
-  }, [count])
+    setInterval(()=>{
+      fetchCount()
+    }, 5000)
+  })
+
   const subscribe = async(obj:any) =>{
     try {
       const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/new?post_key=${process.env.NEXT_PUBLIC_POST_KEY || ''}`,{
@@ -51,6 +54,7 @@ export default function Home() {
       return data;
     } catch (error:any) {
       console.log(error.message);
+      return error;
     }
   }
 
