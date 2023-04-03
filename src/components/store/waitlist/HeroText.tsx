@@ -6,6 +6,7 @@ import TypeIt from "typeit-react";
 const phrases = [
     'is a fashion clothing brand that caters to women of all body types.',
     'is an online fashion school for practical sewing illustrations, techniques and trainings.',
+    'is an online store that caters to women of all body types.',
 	'is specialized in creating one-of-a-kind bridal designs that will leave you feeling breathtakingly beautiful on your big day.',
 	'can help you design a wardrobe that fits your individual style and personality with our custom-made fashion services.',
 	'is dedicated to creating high-quality, timeless pieces that will elevate any wardrobe.',
