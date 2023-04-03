@@ -53,7 +53,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
                         email: "",
                     });
 					setVisible(false);
-					return confetti()
+					return showConfetti()
 				}
                 
 			})
@@ -120,7 +120,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				)}
 			>
 				<Modal.Header>
-					<Text id="modal-title" size={18}>
+					<Text b id="modal-title" size={18}>
 						Subscribe to our &nbsp;
 						<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
                             #Waitlist
@@ -136,6 +136,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 						size="lg"
 						name="first_name"
 						type="text"
+						aria-labelledby="first_name"
 						onChange={e => handleChange(e)}
 						value={subscriber.first_name}
 						placeholder="First Name"
@@ -149,6 +150,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 						size="lg"
 						type="email"
 						name="email"
+						aria-labelledby="email-address"
 						onChange={e => handleChange(e)}
 						value={subscriber.email}
 						placeholder="Email Address"
@@ -163,7 +165,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 						)}
 						auto onPress= {!loading ? submitHandler : nullFunc}
 					>
-						{!loading ? 'Join' : <Loading type="points" />}
+						{!loading ? 'Join' : <Loading type="points" color={"currentColor"} />}
 					</Button>
 				</Modal.Footer>
 			</Modal>

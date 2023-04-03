@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         
        },
     },
-  });
+  }); 
  
   const darkTheme = createTheme({
     type: 'dark',
