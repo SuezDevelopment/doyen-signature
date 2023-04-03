@@ -8,31 +8,50 @@ import WaitingCounter from '@/components/store/waitlist/waitCounter';
 import Footer from '@/components/store/waitlist/footer';
 import Gallery from '@/components/store/waitlist/Gallery';
 import UserReviews from '@/components/store/waitlist/UsersReview';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 const inter = Open_Sans({
 	subsets: ["cyrillic"],
 	weight: ["400", "500", "600"],
 });
 
 
+
+
 export default function Home() {
-  const subscribe = async({fn,em}:any) =>{
-    await fetch('https://api.signaturesbydoyen.org/v1/subscribe/new',{
-      method: 'POST',
+  const [count, setCount] = useState(0);
+
+  const fetchCount = async () => {
+    try {
+      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/count?get_key=${process.env.NEXT_PUBLIC_GET_KEY || ''}`,{
       mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-POST-KEY': process.env.POST_KEY || "",
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({
-        fn,
-        em
+    });
+    const data = await res.json();
+    setCount(data.subscribers);
+    } catch (error:any) {
+      console.log(error.message);
+    }
+  }
+  useEffect(() => {
+    fetchCount()
+  }, [count])
+  const subscribe = async(obj:any) =>{
+    try {
+      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/new?post_key=${process.env.NEXT_PUBLIC_POST_KEY || ''}`,{
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: obj.first_name,
+          email: obj.email,
+        })
       })
-    }).then(res => res.json()).then(data => {
-      console.log(data)
-      return data
-    })
+      const data = await res.json();
+      return data;
+    } catch (error:any) {
+      console.log(error.message);
+    }
   }
 
   return (
@@ -69,7 +88,7 @@ export default function Home() {
           Join the growing community of individuals eager to uncover their unique signature style.
         </div>
         <div className="">
-          <WaitingCounter />
+          <WaitingCounter count={count} />
         </div>
 
         <div className="w-full">
