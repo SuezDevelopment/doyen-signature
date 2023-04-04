@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Alkatra } from 'next/font/google'
+import { Amarante } from 'next/font/google'
 import clsx from "clsx";
 import HeroButton from '@/components/waitlist/HeroButton';
 import HeroText from '@/components/waitlist/HeroText';
@@ -8,7 +8,7 @@ import Footer from '@/components/waitlist/footer';
 import Gallery from '@/components/waitlist/Gallery';
 import UserReviews from '@/components/waitlist/UsersReview';
 import { useEffect, useState } from 'react';
-const inter = Alkatra({
+const inter = Amarante({
 	subsets: ["latin-ext"],
 	weight: ["400"],
 });
@@ -67,7 +67,8 @@ export default function Home() {
         <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
           <p className={clsx(
             "fixed left-0 top-0 flex w-full justify-center bg-gradient-to-b pb-3 pt-4 backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:bg-zinc-800/30 uppercase text-white font-bold tracking-widest text-2xl italic",
-              inter.className
+              inter.className,
+              inter.style.fontStyle = "italic",
           )}>
             Signatures by Doyen
           </p>
