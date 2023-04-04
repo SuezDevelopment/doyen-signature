@@ -6,62 +6,62 @@ export default function UserReviews() {
         {
             name: "CelestialExplorer",
             content:
-                "Just joined the #JoinTheWaitlist app and I'm loving the anticipation! Can't wait to wait some more! 🙌🔥 #WaitingGameStrong",
+                "the experience has been life-changing",
         },
         {
             name: "QuantumHopper",
             content:
-                "Honestly, the #JoinTheWaitlist experience has been life-changing. Never knew waiting could be this exciting! 😂👏 #WorthTheWait",
+                "Honestly, the experience has been life-changing. Never knew ",
         },
         {
             name: "PixelPioneer",
             content:
-                "I've never been more proud to be part of a waitlist community. #JoinTheWaitlist is where it's at, folks! 🚀🎉 #WaitingInStyle",
+                "I've never been more proud to be part of a ",
         },
         {
             name: "WanderlustWhiz",
             content:
-                "I thought I knew what it meant to wait... until I joined the #JoinTheWaitlist app. My waiting game has leveled up! 🤯⏳ #WaitlistMaster",
+                "I thought I knew what it meant to wait... until I ",
         },
         {
             name: "CosmicCrafter",
             content:
-                "Just when I thought I'd seen it all, #JoinTheWaitlist came along and changed the game. Waiting has never been this fun! 🎢🔥 #WaitlistRevolution",
+                "Just when I thought I'd seen it all, ",
         },
         {
             name: "DigitalDaydreamer",
             content:
-                "I'm telling all my friends about the #JoinTheWaitlist app. It's the only place where waiting feels like an accomplishment! 😄🏆 #WaitlistGoals",
+                "I'm telling all my friends about the",
         },
         {
             name: "WhimsicalWordsmith",
             content:
-                "Finally, an app that embraces the beauty of waiting! #JoinTheWaitlist is a game-changer, and I'm here for it. 🙋‍♀️💯 #PatienceIsAVirtue",
+                "Finally, an app that embraces the beauty of ",
         },
         {
             name: "StarryScribe",
             content:
-                "Who knew that the simple act of joining a waitlist could be so thrilling? Loving the #JoinTheWaitlist app! 🤩🕒 #WaitlistAdventures",
+                "Who knew that the simple act of joining a ",
         },
         {
             name: "EnigmaticEngineer",
             content:
-                "I've never been happier to wait in line for something. Thanks to #JoinTheWaitlist, I'm part of an exclusive club! 🌟🎊 #WaitingElite",
+                "I've never been happier to wait in line for something.",
         },
         {
             name: "TimelessTraveler",
             content:
-                "The anticipation is real with the #JoinTheWaitlist app! I can't wait to see what's next on this incredible waiting journey. 🌈⌛️ #WaitlistWonderland",
+                "The anticipation is real with ",
         },
         {
             name: "DragonflyFighter",
             content:
-                "I really can't wait to enter the waitlist for the waitlist. #JoinTheWaitlist is the best app ever! 🤩🤩🤩 #WaitlistWonderland",
+                "I really can't wait to enter ",
         },
         {
             name: "MysticalMaverick",
             content:
-                "I want to wait in line for the waitlist for the waitlist. So that when I get to the waitlist, I can wait for the waitlist. #JoinTheWaitlist #WaitlistWonderland 🤩",
+                "I want to wait in line for the",
         },
     ];
     const ReviewItem = ({props}:{props: any}) => {
@@ -79,8 +79,6 @@ export default function UserReviews() {
                         <h3 className="font-semibold text-lg">{props.name}</h3>
                         <p className="text-white-500">@{props.name}</p>
 				    </div>
-                </Card.Body>
-                <Card.Body>
                     <Text className="text-white-500">
                         {props.content}
                     </Text>
@@ -109,7 +107,7 @@ export default function UserReviews() {
                         <Row gap={1}>
                             {reviews.map((item, index) => (
                                 <div key={index}
-                                className="rounded-lg p-6 hover:scale-[1.02] transition duration-300"
+                                className="rounded-lg p-2 hover:scale-[1.02] transition duration-300"
                                 >
                                     <ReviewItem props={item} />
                                 </div>
