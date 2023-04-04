@@ -69,7 +69,7 @@ export default function Gallery() {
           <>
             <Card css={{ h: "$40", w: "$40"}} isPressable onPress={handler}>
               <Card.Body css={{ p: 0 }}
-                className="flex items-center mb-2"
+                className="flex items-center"
               >
               <Card.Image
                   src={props.img}

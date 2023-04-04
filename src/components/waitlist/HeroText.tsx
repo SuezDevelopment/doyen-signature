@@ -44,7 +44,7 @@ export default function HeroText() {
 						loop: true,
 						cursor: false,
 						strings: phrases,
-						breakLines: false,
+						breakLines: true,
 						speed: 25,
 						deleteSpeed: 0,
 						nextStringDelay: [5000, 0] as any,
