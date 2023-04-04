@@ -68,7 +68,9 @@ export default function Gallery() {
         return (
           <>
             <Card css={{ h: "$40", w: "$40"}} isPressable onPress={handler}>
-              <Card.Body css={{ p: 0 }}>
+              <Card.Body css={{ p: 0 }}
+                className="flex items-center mb-2"
+              >
               <Card.Image
                   src={props.img}
                   objectFit="cover"
@@ -127,7 +129,9 @@ export default function Gallery() {
                 >
                   <Row gap={1}>
                     {list.map((item, index) => (
-                      <div key={index}>
+                      <div key={index}
+                        className="rounded-lg p-2 hover:scale-[1.02] transition duration-300"
+                      >
                         <GalleryItem props={item} />
                       </div>
                     ))}

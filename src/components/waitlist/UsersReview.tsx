@@ -68,17 +68,17 @@ export default function UserReviews() {
         return (
             <Card css={{ h: "$40", w: "$60", bg: "#06204d"}} isPressable>
                 <Card.Body
-                    className="flex items-center mb-4"
+                    className="flex items-center mb-2"
                 >
-                   <Image 
-                    className="h-12 w-12 rounded-full object-cover"
-                    src={`https://i.pravatar.cc/150?u=${props.name}`}
-					alt={props.name}
-                   />
-                   <div className="ml-4">
+                    <Image 
+                        className="h-12 w-12 rounded-full object-cover"
+                        src={`https://i.pravatar.cc/150?u=${props.name}`}
+                        alt={props.name}
+                    />
+                    <div className="ml-4">
                         <h3 className="font-semibold text-lg">{props.name}</h3>
                         <p className="text-white-500">@{props.name}</p>
-					</div>
+				    </div>
                 </Card.Body>
                 <Card.Body>
                     <Text className="text-white-500">
@@ -109,7 +109,7 @@ export default function UserReviews() {
                         <Row gap={1}>
                             {reviews.map((item, index) => (
                                 <div key={index}
-                                className="bg-gradient-to-r from-gray-700 to-gray-800 shadow rounded-lg p-6 hover:scale-[1.02] transition duration-300 hover:shadow-lg hover:bg-gradient-to-r hover:from-gray-600 hover:to-gray-700"
+                                className="rounded-lg p-6 hover:scale-[1.02] transition duration-300"
                                 >
                                     <ReviewItem props={item} />
                                 </div>
