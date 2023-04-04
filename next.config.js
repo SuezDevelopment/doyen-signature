@@ -5,9 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'instagram.flos1-2.fna.fbcdn.net',
+        hostname: 'signaturesbydoyen.org',
         port: '',
-        pathname: '/v/**',
+        pathname: '/**',
       },
     ],
   },

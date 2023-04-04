@@ -1,35 +1,88 @@
 'use-client';
 
+import { Card, Grid } from "@nextui-org/react";
+
 export default function Gallery() {
+    const list = [
+        {
+          title: "Orange",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$5.50",
+        },
+        {
+          title: "Tangerine",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$3.00",
+        },
+        {
+          title: "Cherry",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$10.00",
+        },
+        {
+          title: "Lemon",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$5.30",
+        },
+        {
+          title: "Avocado",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$15.70",
+        },
+        {
+          title: "Lemon 2",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$8.00",
+        },
+        {
+          title: "Banana",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$7.50",
+        },
+        {
+          title: "Watermelon",
+          img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+          price: "$12.20",
+        },
+        {
+            title: "Watermelon",
+            img: "https://signaturesbydoyen.org/doyen-signature.jpg",
+            price: "$12.20",
+        },
+      ];
+    const galleryItem = (props: any)=>{
+        return (
+            <Card css={{ h: "$60", w: "$60"}} isPressable>
+                <Card.Body css={{ p: 0 }}>
+                <Card.Image
+                    src={props.img}
+                    objectFit="cover"
+                    width='100%'
+                    height='100%'
+                    alt={props.title}
+                />
+                </Card.Body>
+            </Card>
+        )
+    }
     return(
         <>
             <div className="my-[5rem]">
-                <div>
-                    <h2 className="text-4xl font-bold text-center mb-10">
-                        A Fashion Gallery of Signatures by Doyen{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
-                            #UnveilingtheChic
-                        </span>
-                    </h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10">
-                    {/* <div className="flex flex-col items-center">
-                        <div className="py-12 animate-marquee whitespace-nowrap">
-                            <span className="mx-4 text-4xl">Marquee Item 1</span>
-                            <span className="mx-4 text-4xl">Marquee Item 2</span>
-                            <span className="mx-4 text-4xl">Marquee Item 3</span>
-                            <span className="mx-4 text-4xl">Marquee Item 4</span>
-                            <span className="mx-4 text-4xl">Marquee Item 5</span>
-                        </div>
-                        <div className="py-12 animate-marquee2 whitespace-nowrap">
-                            <span className="mx-4 text-4xl">Marquee Item 11</span>
-                            <span className="mx-4 text-4xl">Marquee Item 12</span>
-                            <span className="mx-4 text-4xl">Marquee Item 13</span>
-                            <span className="mx-4 text-4xl">Marquee Item 14</span>
-                            <span className="mx-4 text-4xl">Marquee Item 15</span>
-                        </div>
-                    </div> */}
-                </div>
+              <div>
+                  <h2 className="text-4xl font-bold text-center mb-10">
+                      A Fashion Gallery of Signatures by Doyen{" "}
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
+                          #UnveilingtheChic
+                      </span>
+                  </h2>
+              </div>
+              <Grid.Container gap={2} justify="center">
+                  {list.map((item, index) => (
+                      <Grid xs sm key={index}>
+                          {galleryItem(item)}
+                      </Grid>
+                  ))}
+              </Grid.Container>
             </div>
         </>
     );

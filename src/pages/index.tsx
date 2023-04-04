@@ -72,13 +72,12 @@ export default function Home() {
           <p className="fixed left-0 top-0 flex w-full justify-center bg-gradient-to-b pb-3 pt-4 backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:bg-zinc-800/30 uppercase text-white font-bold tracking-widest text-2xl italic">
             Signatures by Doyen
           </p>
-          <div className="fixed bottom-0 left-0 flex h-36 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+          <div className="fixed bottom-0 left-0 flex h-15 w-full items-end justify-center bg-gradient-to-t backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:h-auto lg:w-auto lg:bg-none">
             <p className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0">
               © Signatures by Doyen
             </p>
           </div>
         </div>
-
         <div className="w-full">
           <HeroText />
         </div>
