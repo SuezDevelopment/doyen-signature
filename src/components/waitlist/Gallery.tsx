@@ -126,13 +126,11 @@ export default function Gallery() {
                     speed={10}
                 >
                   <Row gap={1}>
-                    <Col>
-                      {list.map((item, index) => (
-                        <div key={index}>
-                          <GalleryItem props={item} />
-                        </div>
-                      ))}
-                    </Col>
+                    {list.map((item, index) => (
+                      <div key={index}>
+                        <GalleryItem props={item} />
+                      </div>
+                    ))}
                   </Row>
                 </Marquee>
               </Container>

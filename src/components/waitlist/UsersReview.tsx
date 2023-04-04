@@ -74,13 +74,11 @@ export default function UserReviews() {
                         speed={15}
                     >
                         <Row gap={1}>
-                            <Col>
-                                {list.map((item, index) => (
-                                    <div key={index}>
-                                        <ReviewItem props={item} />
-                                    </div>
-                                ))}
-                            </Col>
+                            {list.map((item, index) => (
+                                <div key={index}>
+                                    <ReviewItem props={item} />
+                                </div>
+                            ))}
                         </Row>
                     </Marquee>
                 </Container>
