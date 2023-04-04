@@ -117,7 +117,7 @@ export default function Gallery() {
                       </span>
                   </h2>
               </div>
-              <Container gap={0} justify="center">
+              <Container gap={2} justify="center">
                 <Marquee
                     pauseOnClick={true}
                     play={play}
