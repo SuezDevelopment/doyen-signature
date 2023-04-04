@@ -14,8 +14,6 @@ const inter = Open_Sans({
 });
 
 
-
-
 export default function Home() {
   const [count, setCount] = useState(0);
 
