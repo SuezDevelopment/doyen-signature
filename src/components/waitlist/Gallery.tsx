@@ -1,6 +1,6 @@
 'use-client';
 
-import { Card, Container, Grid, Link, Modal, Text, Image } from "@nextui-org/react";
+import { Card, Container, Grid, Link, Modal, Text, Image, Col, Row } from "@nextui-org/react";
 import styles from "./hb.module.css";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
@@ -111,13 +111,13 @@ export default function Gallery() {
             <div className="my-[5rem]">
               <div>
                   <h2 className="text-4xl font-bold text-center mb-10">
-                      A Fashion Gallery of Signatures by Doyen{" "}
+                      A Fashion Gallery of SignaturesbyDoyen{" "}
                       <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-500">
                           #UnveilingtheChic
                       </span>
                   </h2>
               </div>
-              <Container gap={2} justify="center">
+              <Container gap={0} justify="center">
                 <Marquee
                     pauseOnClick={true}
                     play={play}
@@ -125,11 +125,15 @@ export default function Gallery() {
                     gradient={false}
                     speed={10}
                 >
-                  {list.map((item, index) => (
-                    <div key={index}>
-                      <GalleryItem props={item} />
-                    </div>
-                  ))}
+                  <Row gap={1}>
+                    <Col>
+                      {list.map((item, index) => (
+                        <div key={index}>
+                          <GalleryItem props={item} />
+                        </div>
+                      ))}
+                    </Col>
+                  </Row>
                 </Marquee>
               </Container>
             </div>
