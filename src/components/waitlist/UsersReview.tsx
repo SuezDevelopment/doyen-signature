@@ -1,4 +1,5 @@
 import { Card, Grid } from "@nextui-org/react";
+import { Graduate } from "next/font/google";
 import Marquee from "react-fast-marquee";
 export default function UserReviews() {
     const list =[
@@ -45,9 +46,9 @@ export default function UserReviews() {
         },
 
     ]
-    const ReviewItem = (props:any) => {
+    const ReviewItem = ({props}:{props: any}) => {
         return (
-            <Card css={{ h: "$20", w: "$40", bg: "#06204d"}} isPressable>
+            <Card css={{ h: "$40", w: "$60", bg: "#06204d"}} isPressable>
                 <Card.Body>
                    
                 </Card.Body>
@@ -65,15 +66,18 @@ export default function UserReviews() {
                         </span>
                     </h2>
                 </div>
-                <Marquee
-                    pauseOnClick={true}
-                    pauseOnHover={true}
-                    className="my-[5rem]"
-                >
-                    {list.map((item, index) => (
-                        <ReviewItem key={index} />
-                    ))}
-                </Marquee>
+                <Grid.Container gap={2} justify="center">
+                    <Marquee
+                        pauseOnClick={true}
+                    >
+                        {list.map((item, index) => (
+                            <Grid key={index}>
+                                <ReviewItem props={item} />
+                            </Grid>
+                        ))}
+                    </Marquee>
+                </Grid.Container>
+                
             </div>
         </>
     )

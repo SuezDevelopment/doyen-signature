@@ -150,12 +150,12 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				<Modal.Body>
 					<Input
 						clearable
-						// bordered
 						fullWidth
 						color="primary"
 						size="lg"
 						name="first_name"
 						type="text"
+						required={true}
 						aria-labelledby="first_name"
 						onChange={e => handleChange(e)}
 						value={subscriber.first_name}
@@ -164,12 +164,12 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 					/>
 					<Input
 						clearable
-						// bordered
 						fullWidth
 						color="primary"
 						size="lg"
 						type="email"
 						name="email"
+						required={true}
 						aria-labelledby="email-address"
 						onChange={e => handleChange(e)}
 						value={subscriber.email}
