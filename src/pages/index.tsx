@@ -82,7 +82,7 @@ export default function Home() {
           <HeroText />
         </div>
 
-        <div className="flex place-items-center">
+        <div className="mt-5 flex place-items-center">
           <HeroButton submitSubscriber={subscribe} />
         </div>
 
