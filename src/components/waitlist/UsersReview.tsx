@@ -1,4 +1,4 @@
-import { Card, Grid } from "@nextui-org/react";
+import { Card, Container, Grid } from "@nextui-org/react";
 import { Graduate } from "next/font/google";
 import Marquee from "react-fast-marquee";
 export default function UserReviews() {
@@ -66,11 +66,12 @@ export default function UserReviews() {
                         </span>
                     </h2>
                 </div>
-                <Grid.Container gap={2} justify="center">
+                <Container gap={2} justify="center">
                     <Marquee
                         pauseOnClick={true}
                         pauseOnHover={false}
                         gradient={false}
+                        speed={15}
                     >
                         {list.map((item, index) => (
                             <div key={index}>
@@ -78,7 +79,7 @@ export default function UserReviews() {
                             </div>
                         ))}
                     </Marquee>
-                </Grid.Container>
+                </Container>
                 
             </div>
         </>
