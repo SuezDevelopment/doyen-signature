@@ -4,7 +4,7 @@ import clsx from "clsx";
 import styles from "./hb.module.css";
 // @ts-ignore
 import confetti from "canvas-confetti";
-import { useCallback, Fragment, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import { Modal, Button, Text, Input, Loading, PressEvent, Row, Col, } from "@nextui-org/react";
 import { IconMail, IconUser } from "@tabler/icons-react";
 import { getKeysWithoutValues } from '@/utils/tools';

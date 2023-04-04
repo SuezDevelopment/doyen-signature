@@ -1,15 +1,20 @@
 'use-client';
 
 import { Card, Container, Grid, Link, Modal, Text, Image } from "@nextui-org/react";
-import { it } from "node:test";
+import styles from "./hb.module.css";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
+import clsx from "clsx";
 export default function Gallery() {
   const [visible, setVisible] = useState(false);
-  const handler = () => setVisible(true);
+  const [play, setPlay] = useState(true);
+  const handler = () => {
+    setVisible(true)
+    setPlay(false)
+  };
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
+    setPlay(true)
   };
     const list = [
       {
@@ -73,7 +78,15 @@ export default function Gallery() {
               />
               </Card.Body>
             </Card>
-            <Modal noPadding open={visible} onClose={closeHandler}>
+            <Modal 
+              noPadding
+              blur
+              open={visible} 
+              onClose={closeHandler}
+              className={clsx(
+                styles.modal_bg,
+              )}
+            >
               <Modal.Header
                 css={{ position: "absolute", zIndex: "$1", top: 5, right: 8 }}
               >
@@ -107,7 +120,7 @@ export default function Gallery() {
               <Container gap={2} justify="center">
                 <Marquee
                     pauseOnClick={true}
-                    play={visible ? true : false}
+                    play={play}
                     pauseOnHover={false}
                     gradient={false}
                     speed={10}
