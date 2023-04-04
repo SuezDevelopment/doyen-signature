@@ -113,7 +113,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 			<Button
 				className={clsx(
 					styles.button,
-					"text-[1rem] sm:text-[1.5rem] md:text-[2rem]"
+					"text-[1rem] sm:text-[1.5rem] md:text-[2rem] text-center"
 				)}
 				auto shadow onPress={handler}
 			>
@@ -181,7 +181,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 					<Button 
 						className={clsx(
 							styles.button,
-							"text-[1rem] sm:text-[1.5rem] md:text-[2rem]"
+							"text-[1rem] sm:text-[1.5rem] md:text-[2rem] text-center"
 						)}
 						auto onPress= {!loading ? submitHandler : nullFunc}
 					>
