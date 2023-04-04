@@ -78,7 +78,7 @@ export default function Gallery() {
                   </h2>
               </div>
               <Grid.Container gap={2} justify="center">
-              <Marquee
+                <Marquee
                     pauseOnClick={true}
                     pauseOnHover={true}
                     className="my-[5rem]"
