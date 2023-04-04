@@ -107,7 +107,7 @@ export default function Gallery() {
               <Container gap={2} justify="center">
                 <Marquee
                     pauseOnClick={true}
-                    play={true ? visible : true}
+                    play={visible ? true : false}
                     pauseOnHover={false}
                     gradient={false}
                     speed={10}
