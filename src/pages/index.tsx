@@ -31,9 +31,7 @@ export default function Home() {
     }
   }
   useEffect(() => {
-    setInterval(()=>{
-      fetchCount()
-    }, 5000)
+    fetchCount()
   })
 
   const subscribe = async(obj:any) =>{
