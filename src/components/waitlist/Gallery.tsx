@@ -81,11 +81,12 @@ export default function Gallery() {
                 <Marquee
                     pauseOnClick={true}
                     pauseOnHover={false}
+                    gradient={false}
                 >
                   {list.map((item, index) => (
-                    <Grid key={index}>
+                    <div key={index}>
                       {galleryItem(item)}
-                    </Grid>
+                    </div>
                   ))}
                 </Marquee>
               </Grid.Container>

@@ -70,11 +70,12 @@ export default function UserReviews() {
                     <Marquee
                         pauseOnClick={true}
                         pauseOnHover={false}
+                        gradient={false}
                     >
                         {list.map((item, index) => (
-                            <Grid key={index}>
+                            <div key={index}>
                                 <ReviewItem props={item} />
-                            </Grid>
+                            </div>
                         ))}
                     </Marquee>
                 </Grid.Container>
