@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Open_Sans } from 'next/font/google'
+import { Open_Sans, Amarante } from 'next/font/google'
 import clsx from "clsx";
 import HeroButton from '@/components/waitlist/HeroButton';
 import HeroText from '@/components/waitlist/HeroText';
@@ -8,9 +8,9 @@ import Footer from '@/components/waitlist/footer';
 import Gallery from '@/components/waitlist/Gallery';
 import UserReviews from '@/components/waitlist/UsersReview';
 import { useEffect, useState } from 'react';
-const inter = Open_Sans({
-	subsets: ["cyrillic"],
-	weight: ["400", "500", "600"],
+const inter = Amarante({
+	subsets: ["latin-ext"],
+	weight: ["400"],
 });
 
 
@@ -29,7 +29,7 @@ export default function Home() {
     }
   }
   useEffect(() => {
-    fetchCount()
+    async () => await fetchCount()
   })
 
   const subscribe = async(obj:any) =>{
