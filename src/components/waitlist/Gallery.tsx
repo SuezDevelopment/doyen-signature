@@ -1,7 +1,8 @@
 'use-client';
 
 import { Card, Grid } from "@nextui-org/react";
-
+import { it } from "node:test";
+import Marquee from "react-fast-marquee";
 export default function Gallery() {
     const list = [
         {
@@ -52,7 +53,7 @@ export default function Gallery() {
       ];
     const galleryItem = (props: any)=>{
         return (
-            <Card css={{ h: "$60", w: "$60"}} isPressable>
+            <Card css={{ h: "$40", w: "$40"}} isPressable>
                 <Card.Body css={{ p: 0 }}>
                 <Card.Image
                     src={props.img}
@@ -77,11 +78,17 @@ export default function Gallery() {
                   </h2>
               </div>
               <Grid.Container gap={2} justify="center">
+              <Marquee
+                    pauseOnClick={true}
+                    pauseOnHover={true}
+                    className="my-[5rem]"
+                >
                   {list.map((item, index) => (
-                      <Grid xs sm key={index}>
-                          {galleryItem(item)}
-                      </Grid>
+                    <Grid key={index}>
+                      {galleryItem(item)}
+                    </Grid>
                   ))}
+                </Marquee>
               </Grid.Container>
             </div>
         </>
