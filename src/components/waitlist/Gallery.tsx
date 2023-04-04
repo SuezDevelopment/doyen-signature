@@ -80,6 +80,7 @@ export default function Gallery() {
               <Grid.Container gap={2} justify="center">
                 <Marquee
                     pauseOnClick={true}
+                    pauseOnHover={false}
                 >
                   {list.map((item, index) => (
                     <Grid key={index}>
