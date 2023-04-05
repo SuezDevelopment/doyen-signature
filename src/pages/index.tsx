@@ -19,7 +19,7 @@ export default function Home() {
 
   const fetchCount = async () => {
     try {
-      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/count?get_key=${process.env.GET_KEY || ''}`,{
+      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/count?get_key=${process.env.NEXT_PUBLIC_GET_KEY || ''}`,{
       mode: 'cors',
     });
     const data = await res.json();
@@ -29,12 +29,12 @@ export default function Home() {
     }
   }
   useEffect(() => {
-    async () => await fetchCount()
+    fetchCount()
   })
 
   const subscribe = async(obj:any) =>{
     try {
-      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/new?post_key=${process.env.POST_KEY || ''}`,{
+      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/new?post_key=${process.env.NEXT_PUBLIC_POST_KEY || ''}`,{
         method: 'POST',
         mode: 'cors',
         headers: {
