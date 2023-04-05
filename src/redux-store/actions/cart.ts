@@ -37,7 +37,7 @@ export const getCartByCookieOrRetrieve = async () => {
 		try {
 			return await apiClient.cart.getCartInfo(cartId)
 		} catch (error) {
-			
+			return error;
 		}
 	}
 	return await apiClient.cart.retrieveCart();

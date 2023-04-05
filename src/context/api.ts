@@ -15,13 +15,13 @@ const api = Axios.create({
 });
 
 api.interceptors.response.use(function (response) {
-    return response.data
+  return response.data
 }, function (error) {
-    return error.response.data;
+  return error.response.data;
 });
 
 if (baseURL){
-    api.defaults.baseURL = baseURL
+  api.defaults.baseURL = baseURL
 }
 
 let authInterceptorID: number;
@@ -46,7 +46,7 @@ class ApiClient {
     this.api = api;
     this.get_key = get_key
     this.post_key = post_key
-    this.cart = new Cart(api)
+    this.cart = new Cart(api,get_key, post_key)
   }
 
 }

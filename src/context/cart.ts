@@ -1,24 +1,48 @@
-import {ICategory} from 'boundless-api-client';
+
 export class Cart {
     api: any
-    constructor(api: any) {
+    cartId: string
+    get_key:string
+    post_key:string
+    constructor(api: any, get_key:string, post_key:string) {
         this.api = api
+        this.cartId = ''
+        this.get_key = get_key
+        this.post_key = post_key
     }
 
     async getCartInfo(cartId: any){
-        let arg: any
-        let cardInfo = {
-            ...arg
+        this.cartId += cartId;
+        try {
+            const res = await this.api.get(`store/cart?cart_id=${this.cartId}&get_key=${this.get_key}`)
+            return res.cart_info
+        } catch (error:any) {
+            return error.message
         }
-        return cardInfo
     }
 
     async retrieveCart(){
-
+       try {
+        const res = await this.api.get(`store/cart?cart_id=${this.cartId}&get_key=${this.get_key}`)
+        return res.cart_info
+       } catch (error:any) {
+        return error.message
+       }
     }
 
     async addItemToCart(cartId: string, itemId: number, qty:number){
-        let product, actionRequired, cartTotal, added
-        return {product, actionRequired, cartTotal, added}
+        try {
+            const res = await this.api.post(`store/cart?post_key=${this.post_key}`,{
+                body: JSON.stringify({
+                    cart_id: cartId,
+                    item_id: itemId,
+                    qty: qty
+                })
+            })
+            const {product, actionRequired, cartTotal, added} = await res.cart_info
+            return {product, actionRequired, cartTotal, added}
+        } catch (error:any) {
+            return error.message
+        }
     }
 }
