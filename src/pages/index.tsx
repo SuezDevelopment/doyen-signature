@@ -65,11 +65,14 @@ export default function Home() {
         )}
       >
         <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-          <p className={clsx(
-            "fixed left-0 top-0 flex w-full justify-center bg-gradient-to-b pb-3 pt-4 backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:bg-zinc-800/30 uppercase text-white font-bold tracking-widest text-2xl italic",
+          <p 
+            className={clsx(
+              "fixed left-0 top-0 flex w-full justify-center bg-gradient-to-b pb-3 pt-4 backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:bg-zinc-800/30 uppercase text-white font-bold tracking-widest text-2xl italic",
               inter.className,
               inter.style.fontStyle = "italic",
-          )}>
+            )}
+            style={inter.style}
+          >
             Signatures by Doyen
           </p>
           <div className="fixed bottom-0 left-0 flex h-15 w-full items-end justify-center bg-gradient-to-t backdrop-blur-2xl bg-zinc-800/30 dark:from-inherit lg:static lg:h-auto lg:w-auto lg:bg-none">
