@@ -1,9 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-
+import {ICartProduct, ICartTotal, IVwItem} from '@/@types';
 
 export interface CartState {
 	cartId: string | null;
-	total: any | null;
+	total: ICartTotal | null;
 	showVariantModal: boolean;
 	variantModalData: IVariantModalData;
 	showCall2Order: boolean;
@@ -35,7 +35,7 @@ export const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		setCartTotal: (state, action: PayloadAction<any>) => {
+		setCartTotal: (state, action: PayloadAction<ICartTotal>) => {
 			state.total = action.payload;
 		},
 		showVariantModal: (state, action: PayloadAction<IVariantModalData>) => {
@@ -60,7 +60,7 @@ export const cartSlice = createSlice({
 		setInitStatus: (state, action: PayloadAction<TCartInited>) => {
 			state.cartInited = action.payload;
 		},
-		setCartInited: (state, action: PayloadAction<{id: string, total: any}>) => {
+		setCartInited: (state, action: PayloadAction<{id: string, total: ICartTotal}>) => {
 			state.cartId = action.payload.id;
 			state.total = action.payload.total;
 			state.cartInited = TCartInited.yes;
@@ -82,10 +82,10 @@ export const {
 export default cartSlice.reducer;
 
 export interface IVariantModalData {
-	product?: any;
+	product?: ICartProduct;
 }
 
 export interface ICall2OrderData {
 	qty?: number;
-	item?: any;
+	item?: IVwItem;
 }
