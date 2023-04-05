@@ -6,9 +6,12 @@ import {
 	showVariantModal,
 	TCartInited
 } from '../reducers/cart';
+import {addPromise} from '../reducers/xhr';
+import {showErrorAlert} from '../reducers/alert';
 
 import Cookie from 'js-cookie';
 import {AppThunk} from '../store';
+import apiClient from '@/context/api'
 
 export const initCart = (): AppThunk => async (dispatch, getState) => {
     const {cartInited} = getState().cart;
@@ -30,12 +33,35 @@ export const initCart = (): AppThunk => async (dispatch, getState) => {
 
 export const getCartByCookieOrRetrieve = async () => {
     const cartId = Cookie.get('ds_cart_id');
-
+	if (cartId) {
+		try {
+			return await apiClient.cart.getCartInfo(cartId)
+		} catch (error) {
+			
+		}
+	}
+	return await apiClient.cart.retrieveCart();
 }
 
 export const addItem2Cart = (itemId: number, qty: number = 1, callToOrder: boolean = true): AppThunk => async (dispatch, getState) => {
     try {
-
+		const cartId = getState().cart.cartId;
+		if (!cartId) {
+			dispatch(showErrorAlert('Error loading cart'));
+			return;
+		}
+		dispatch(setCartSubmitting(true));
+		const promise = apiClient.cart.addItemToCart(cartId, itemId, qty).then(
+			({product, actionRequired, cartTotal, added}) => {
+				dispatch(setCartSubmitting(false));
+				if (actionRequired === 'chooseVariant' && product) {
+					dispatch(showVariantModal({product}));
+				} else if (cartTotal) {
+					dispatch(setCartTotal(cartTotal));
+					if (callToOrder && added) dispatch(showCall2Order(added));
+				}
+			})
+		dispatch(addPromise(promise));	
     } catch (err) {
         console.error(err);
     }
