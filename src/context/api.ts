@@ -1,6 +1,7 @@
 import Axios from "axios";
 import {Cart} from './cart'
 import {BoundlessClient} from 'boundless-api-client';
+import { Subscription } from "./subscription";
 
 
 const baseURL = process.env.API_BASE_URL || ''
@@ -41,12 +42,14 @@ class ApiClient {
   get_key: string;
   post_key: string;
   cart: Cart;
+  subscription: Subscription;
   
   constructor() {
     this.api = api;
     this.get_key = get_key
     this.post_key = post_key
     this.cart = new Cart(api,get_key, post_key)
+    this.subscription = new Subscription(api,get_key, post_key)
   }
 
 }

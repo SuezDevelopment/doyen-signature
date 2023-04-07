@@ -5,8 +5,8 @@ export interface IItemPrice {
     price_id: number | string;
     basic_price: string | null;
     final_price: string | null;
-    discount_amount: string | number | null;
-    discount_percent: string | number | null;
+    discount_amount:  number | null;
+    discount_percent: number | null;
 }
 
 export interface IVwItemProduct {

@@ -8,6 +8,7 @@ import Footer from '@/components/waitlist/footer';
 import Gallery from '@/components/waitlist/Gallery';
 import UserReviews from '@/components/waitlist/UsersReview';
 import { useEffect, useState } from 'react';
+import apiClient from '@/context/api';
 const inter = Amarante({
 	subsets: ["latin-ext"],
 	weight: ["400"],
@@ -19,10 +20,8 @@ export default function Home() {
 
   const fetchCount = async () => {
     try {
-      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/count?get_key=${process.env.NEXT_PUBLIC_GET_KEY || ''}`,{
-      mode: 'cors',
-    });
-    const data = await res.json();
+      const res = await apiClient.subscription.get_subscriptions_count()
+      const data = await res
     setCount(data.subscribers);
     } catch (error:any) {
       console.log(error.message);
@@ -34,18 +33,8 @@ export default function Home() {
 
   const subscribe = async(obj:any) =>{
     try {
-      const res = await fetch(`https://api.signaturesbydoyen.org/v1/subscribe/new?post_key=${process.env.NEXT_PUBLIC_POST_KEY || ''}`,{
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          first_name: obj.first_name,
-          email: obj.email,
-        })
-      })
-      const data = await res.json();
+      const res = await apiClient.subscription.new_subscription(obj)
+      const data = await res
       return data;
     } catch (error:any) {
       console.log(error.message);

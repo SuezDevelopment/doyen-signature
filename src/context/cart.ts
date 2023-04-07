@@ -22,6 +22,7 @@ export class Cart {
     }
 
     async retrieveCart(){
+        // get cart info from user session and retrieve it
        try {
         const res = await this.api.get(`store/cart?cart_id=${this.cartId}&get_key=${this.get_key}`)
         return res.cart_info
@@ -36,7 +37,7 @@ export class Cart {
                 body: JSON.stringify({
                     cart_id: cartId,
                     item_id: itemId,
-                    qty: qty
+                    quantity: qty
                 })
             })
             const {product, actionRequired, cartTotal, added} = await res.cart_info

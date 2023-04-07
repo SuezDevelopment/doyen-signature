@@ -6,7 +6,7 @@ export interface ICartInfo {
 }
 export interface ICartTotal {
     qty: number;
-    total: number | string;
+    total: number;
 }
 export interface ICart {
     cart: ICartInfo;
