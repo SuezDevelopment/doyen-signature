@@ -1,5 +1,5 @@
-import Axios from "axios";
-import {Cart} from './cart'
+import Axios, {AxiosInstance} from "axios";
+import {Cart} from './cart';
 import {BoundlessClient} from 'boundless-api-client';
 import { Subscription } from "./subscription";
 
@@ -7,7 +7,9 @@ import { Subscription } from "./subscription";
 const baseURL = process.env.API_BASE_URL || ''
 const get_key = process.env.GET_KEY || ''
 const post_key = process.env.POST_KEY || ''
-const api = Axios.create({
+
+
+const api: AxiosInstance = Axios.create({
     baseURL: `${baseURL}`,
     headers: {
       'Accept': 'application/json',
@@ -38,7 +40,7 @@ export const unauthenticateAPI = () => {
 };
 
 class ApiClient {
-  api: any;
+  api: AxiosInstance;
   get_key: string;
   post_key: string;
   cart: Cart;
@@ -49,7 +51,7 @@ class ApiClient {
     this.get_key = get_key
     this.post_key = post_key
     this.cart = new Cart(api,get_key, post_key)
-    this.subscription = new Subscription(api,get_key, post_key)
+    this.subscription = new Subscription(api, get_key, post_key)
   }
 
 }
