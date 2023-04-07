@@ -3,14 +3,12 @@ import {Cart} from './cart';
 import {BoundlessClient} from 'boundless-api-client';
 import { Subscription } from "./subscription";
 
-
-const baseURL = process.env.API_BASE_URL || ''
 const get_key = process.env.GET_KEY || ''
 const post_key = process.env.POST_KEY || ''
 
 
 const api: AxiosInstance = Axios.create({
-    baseURL: `${baseURL}`,
+    baseURL: `https://api.signaturesbydoyen.org/v1/`,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -22,10 +20,6 @@ api.interceptors.response.use(function (response) {
 }, function (error) {
   return error.response.data;
 });
-
-if (baseURL){
-  api.defaults.baseURL = baseURL
-}
 
 let authInterceptorID: number;
 export const authenticateAPI = async (token: string) => {
