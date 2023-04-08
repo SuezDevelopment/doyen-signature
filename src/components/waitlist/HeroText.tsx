@@ -33,7 +33,8 @@ export default function HeroText() {
 				"leading-[1.25]",
 				"mt-[5rem] mb-[1rem] sm:mb-[2rem] md:mb-[3rem] lg:mb-[4rem] xl:mb-[5rem]",
 				"text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[5rem]",
-				"min-h-[14rem] sm:min-h-[18rem] md:min-h-[20rem] lg:min-h-[20rem] xl:min-h-[20rem]"
+				"min-h-[14rem] sm:min-h-[18rem] md:min-h-[20rem] lg:min-h-[20rem] xl:min-h-[20rem]",
+				"w-fit"
 			)}
 		>
 			<span className="font-bold">Signatures by Doyen</span>{" "}
@@ -43,9 +44,10 @@ export default function HeroText() {
 						loop: true,
 						cursor: false,
 						strings: phrases,
-						breakLines: true,
+						breakLines: false,
 						speed: 25,
-						deleteSpeed: 0,
+						waitUntilVisible: true,
+						deleteSpeed: 2,
 						nextStringDelay: [5000, 0] as any,
 					}}
 				/>
