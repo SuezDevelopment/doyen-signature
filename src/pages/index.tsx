@@ -28,7 +28,7 @@ export default function Home() {
   }
   useEffect(() => {
     fetchCount()
-  })
+  },[count])
 
   const subscribe = async(obj:any) =>{
     try {
