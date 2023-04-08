@@ -14,6 +14,10 @@ const inter = Amarante({
 	weight: ["400"],
 });
 
+type subscriber = {
+  first_name: string
+  email: string
+}
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -30,7 +34,7 @@ export default function Home() {
     fetchCount()
   },[count])
 
-  const subscribe = async(obj:any) =>{
+  const subscribe = async(obj:subscriber) =>{
     try {
       const res = await apiClient.subscription.new_subscription(obj)
       return res;
