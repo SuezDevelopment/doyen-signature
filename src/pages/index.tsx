@@ -70,7 +70,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="w-full px-5">
+        <div className="w-fit">
           <HeroText />
         </div>
 

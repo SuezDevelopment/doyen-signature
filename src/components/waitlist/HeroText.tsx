@@ -1,5 +1,4 @@
-"use client";
-
+"use-client"
 import clsx from "clsx";
 import TypeIt from "typeit-react";
 
