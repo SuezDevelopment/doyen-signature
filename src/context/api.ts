@@ -13,7 +13,7 @@ const api: AxiosInstance = Axios.create({
 });
 
 api.interceptors.response.use(function (response) {
-  return response.data
+  return response.data;
 }, function (error) {
   return error.response.data;
 });
@@ -34,7 +34,7 @@ class ApiClient {
   api: AxiosInstance;
   cart: Cart;
   subscription: Subscription;
-  
+
   constructor() {
     this.api = api;
     this.cart = new Cart(api)
