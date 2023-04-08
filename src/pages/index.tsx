@@ -21,7 +21,7 @@ export default function Home() {
   const fetchCount = async () => {
     try {
       const res = await apiClient.subscription.get_subscriptions_count()
-      const data = await res.data
+      const data = await res
     setCount(data.subscribers);
     } catch (error:any) {
       console.log(error.message);

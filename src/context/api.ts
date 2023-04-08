@@ -2,9 +2,6 @@ import Axios, {AxiosInstance} from "axios";
 import {Cart} from './cart';
 // import {BoundlessClient} from 'boundless-api-client';
 import { Subscription } from "./subscription";
-
-const get_key: string = process.env.GET_KEY ? process.env.GET_KEY : ''
-const post_key: string = process.env.POST_KEY ? process.env.POST_KEY : ''
 const api_base_url: string = process.env.API_BASE_URL ? process.env.API_BASE_URL : ''
 
 const api: AxiosInstance = Axios.create({
@@ -42,10 +39,8 @@ class ApiClient {
   
   constructor() {
     this.api = api;
-    this.get_key = get_key
-    this.post_key = post_key
-    this.cart = new Cart(api,get_key, post_key)
-    this.subscription = new Subscription(api, get_key, post_key)
+    this.cart = new Cart(api)
+    this.subscription = new Subscription(api)
   }
 
 }
