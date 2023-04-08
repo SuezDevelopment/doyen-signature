@@ -13,15 +13,20 @@ type WithChildren<T = {}> =
   T & { children?: React.ReactNode };
 
 type AddSubscriberProps = WithChildren<{
-  submitSubscriber: (obj:any) => any
+  submitSubscriber: (obj:subscriber) => any
 }>
+
+type subscriber = {
+	first_name: string
+	email: string
+  }
 
 export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 	const [visible, setVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [message, setMessage] = useState(null);
-	const [subscriber, setSubscriber] = useState({
+	const [subscriber, setSubscriber] = useState<subscriber>({
 		first_name: "",
 		email: "",
 	});
