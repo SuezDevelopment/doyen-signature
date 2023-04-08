@@ -1,8 +1,7 @@
 import Axios, {AxiosInstance} from "axios";
 import {Cart} from './cart';
-import {BoundlessClient} from 'boundless-api-client';
+// import {BoundlessClient} from 'boundless-api-client';
 import { Subscription } from "./subscription";
-import dotenv from 'dotenv';
 
 const get_key: string = process.env.GET_KEY ? process.env.GET_KEY : ''
 const post_key: string = process.env.POST_KEY ? process.env.POST_KEY : ''

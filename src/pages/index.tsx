@@ -94,7 +94,6 @@ export default function Home() {
         </div> */}
 
         <div className="h-24"></div>
-
 			  <Footer />
       </main>
     </>
