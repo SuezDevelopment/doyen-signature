@@ -4,12 +4,12 @@ import {BoundlessClient} from 'boundless-api-client';
 import { Subscription } from "./subscription";
 import dotenv from 'dotenv';
 
-const get_key = process.env.GET_KEY ? process.env.GET_KEY : ''
-const post_key = process.env.POST_KEY ? process.env.POST_KEY : ''
-
+const get_key: string = process.env.GET_KEY ? process.env.GET_KEY : ''
+const post_key: string = process.env.POST_KEY ? process.env.POST_KEY : ''
+const api_base_url: string = process.evn.API_BASE_URL ? process.evn.API_BASE_URL : ''
 
 const api: AxiosInstance = Axios.create({
-    baseURL: `https://api.signaturesbydoyen.org/v1/`,
+    baseURL: `${api_base_url ? api_base_url : 'https://api.signaturesbydoyen.org/v1/'}`,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
