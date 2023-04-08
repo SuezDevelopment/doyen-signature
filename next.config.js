@@ -11,6 +11,11 @@ const nextConfig = {
       },
     ],
   },
+  env:{
+    GET_KEY: process.env.GET_KEY,
+    POST_KEY: process.env.POST_KEY,
+    API_BASE_URL: process.env.API_BASE_URL,
+  },
 }
 
 module.exports = nextConfig
