@@ -9,6 +9,7 @@ import { Modal, Button, Text, Input, Loading, PressEvent, Row, Col, } from "@nex
 import { IconMail, IconUser } from "@tabler/icons-react";
 import { getKeysWithoutValues } from '@/utils/tools';
 
+
 type WithChildren<T = {}> = 
   T & { children?: React.ReactNode };
 
@@ -50,26 +51,24 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 			setLoading(false);
 			return setVisible(true);
 		} else {
-			await submitSubscriber(subscriber).then( (data:any) => {
-				console.log(data);
-				if (data.status === true) {
-					setLoading(false);
-                    setError(null);
-                    setMessage(data.message);
-                    setSubscriber({
-                        first_name: "",
-                        email: "",
-                    });
-					return showConfetti()
-				}
+			try {
+				const data = await submitSubscriber(subscriber)
 				setLoading(false);
-				setError(data.message);
+				setError(null);
+				setMessage(data.message);
+				setSubscriber({
+					first_name: "",
+					email: "",
+				});
+				return showConfetti()
+			} catch (error:any) {
+				setLoading(false);
+				setError(error.message);
 				setTimeout(() => {
 					setError(null);
 				}, 5000)
-			})
+			}
 		}
-		
 	}
 
     const showConfetti = useCallback(() => {
@@ -118,6 +117,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 			<Button
 				className={clsx(
 					styles.button,
+					inter.className,
 					"text-[1rem] sm:text-[1.5rem] md:text-[2rem] text-center"
 				)}
 				auto shadow onPress={handler}
@@ -133,6 +133,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				onClose={closeHandler}
 				className={clsx(
 					styles.modal_bg,
+					inter.className
 				)}
 			>
 				<Modal.Header>	
