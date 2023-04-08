@@ -170,7 +170,7 @@ export default function HeroButton(){
 						required={true}
 						aria-labelledby="first_name"
 						onChange={e => handleChange(e)}
-						value={subscriber.first_name}
+						value={subscriber_data.first_name}
 						placeholder="First Name"
 						contentLeft={<IconUser size="1.5em" />}
 					/>
@@ -184,7 +184,7 @@ export default function HeroButton(){
 						required={true}
 						aria-labelledby="email-address"
 						onChange={e => handleChange(e)}
-						value={subscriber.email}
+						value={subscriber_data.email}
 						placeholder="Email Address"
 						contentLeft={<IconMail size="1.5em" />}
 					/>
