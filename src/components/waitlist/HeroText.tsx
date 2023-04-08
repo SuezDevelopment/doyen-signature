@@ -5,7 +5,7 @@ import TypeIt from "typeit-react";
 const phrases = [
     'is a fashion clothing brand that caters to women of all body types.',
     'is an online fashion school for practical sewing illustrations, techniques and trainings.',
-    'is an online store that caters to women of all body types.',
+    'is an online ready-to-wear store that caters to women of all body types.',
 	'is specialized in creating one-of-a-kind bridal designs that will leave you feeling breathtakingly beautiful on your big day.',
 	'can help you design a wardrobe that fits your individual style and personality with our custom-made fashion services.',
 	'is dedicated to creating high-quality, timeless pieces that will elevate any wardrobe.',
@@ -34,7 +34,7 @@ export default function HeroText() {
 				"mt-[5rem] mb-[1rem] sm:mb-[2rem] md:mb-[3rem] lg:mb-[4rem] xl:mb-[5rem]",
 				"text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[5rem]",
 				"min-h-[14rem] sm:min-h-[18rem] md:min-h-[20rem] lg:min-h-[20rem] xl:min-h-[20rem]",
-				"w-fit"
+				"w-fit px-1"
 			)}
 		>
 			<span className="font-bold">Signatures by Doyen</span>{" "}
@@ -47,7 +47,7 @@ export default function HeroText() {
 						breakLines: false,
 						speed: 25,
 						waitUntilVisible: true,
-						deleteSpeed: 2,
+						deleteSpeed: 1, 
 						nextStringDelay: [5000, 0] as any,
 					}}
 				/>
