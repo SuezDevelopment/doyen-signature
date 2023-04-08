@@ -70,7 +70,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full px-5">
           <HeroText />
         </div>
 
@@ -89,9 +89,9 @@ export default function Home() {
           <Gallery />
         </div>
 
-        <div className="w-full">
+        {/* <div className="w-full">
           <UserReviews />
-        </div>
+        </div> */}
 
         <div className="h-24"></div>
 
