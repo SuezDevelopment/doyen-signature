@@ -52,7 +52,7 @@ export default function HeroButton(){
 			return setVisible(true);
 		} else {
 			try {
-				const data = await apiClient.subscription.new_subscription(subscriber_data.firstname, subscriber_data.email)
+				const data = await apiClient.subscription.new_subscription(subscriber_data.first_name, subscriber_data.email)
 				if(data.status == true){
 					setLoading(false);
 					setError(null);
