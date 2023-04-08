@@ -34,16 +34,6 @@ export default function Home() {
     fetchCount()
   },[count])
 
-  const subscribe = async(obj:subscriber) =>{
-    try {
-      const res = await apiClient.subscription.new_subscription(obj)
-      return res;
-    } catch (error:any) {
-      console.log(error.message);
-      return error;
-    }
-  }
-
   return (
     <>
     <Head>
@@ -77,7 +67,7 @@ export default function Home() {
         </div>
 
         <div className="mt-20 flex place-items-center">
-          <HeroButton submitSubscriber={subscribe} />
+          <HeroButton submitSubscriber={(obj:subscriber) => apiClient.subscription.new_subscription(obj)} />
         </div>
 
         <div className="text-sm italic mt-10">
