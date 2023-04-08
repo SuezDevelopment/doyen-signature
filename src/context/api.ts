@@ -32,8 +32,6 @@ export const unauthenticateAPI = () => {
 
 class ApiClient {
   api: AxiosInstance;
-  get_key: string;
-  post_key: string;
   cart: Cart;
   subscription: Subscription;
   
