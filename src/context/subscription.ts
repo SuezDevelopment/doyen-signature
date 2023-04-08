@@ -5,7 +5,7 @@ export class Subscription {
     }
 
     async get_subscriptions_count() {
-        return await this.api.get(`subscribe/count}`)
+        return await this.api.get(`subscribe/count`)
     }
 
 
