@@ -5,7 +5,7 @@ import { Subscription } from "./subscription";
 
 const get_key: string = process.env.GET_KEY ? process.env.GET_KEY : ''
 const post_key: string = process.env.POST_KEY ? process.env.POST_KEY : ''
-const api_base_url: string = process.evn.API_BASE_URL ? process.evn.API_BASE_URL : ''
+const api_base_url: string = process.env.API_BASE_URL ? process.env.API_BASE_URL : ''
 
 const api: AxiosInstance = Axios.create({
     baseURL: `${api_base_url ? api_base_url : 'https://api.signaturesbydoyen.org/v1/'}`,
