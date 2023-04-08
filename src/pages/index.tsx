@@ -67,7 +67,7 @@ export default function Home() {
         </div>
 
         <div className="mt-20 flex place-items-center">
-          <HeroButton submitSubscriber={(obj:subscriber) => apiClient.subscription.new_subscription(obj)} />
+          <HeroButton />
         </div>
 
         <div className="text-sm italic mt-10">

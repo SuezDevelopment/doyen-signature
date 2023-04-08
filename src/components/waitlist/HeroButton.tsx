@@ -8,7 +8,7 @@ import { useCallback, useState } from "react";
 import { Modal, Button, Text, Input, Loading, PressEvent, Row, Col, } from "@nextui-org/react";
 import { IconMail, IconUser } from "@tabler/icons-react";
 import { getKeysWithoutValues } from '@/utils/tools';
-
+import apiClient from '@/context/api';
 
 type WithChildren<T = {}> = 
   T & { children?: React.ReactNode };
@@ -22,7 +22,7 @@ type subscriber = {
 	email: string
   }
 
-export default function HeroButton({submitSubscriber}:AddSubscriberProps){
+export default function HeroButton(){
 	const [visible, setVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
@@ -52,7 +52,7 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 			return setVisible(true);
 		} else {
 			try {
-				const data = await submitSubscriber(subscriber)
+				const data = await apiClient.subscription.new_subscription(subscriber)
 				setLoading(false);
 				setError(null);
 				setMessage(data.message);
