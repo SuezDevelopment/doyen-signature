@@ -117,7 +117,6 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 			<Button
 				className={clsx(
 					styles.button,
-					inter.className,
 					"text-[1rem] sm:text-[1.5rem] md:text-[2rem] text-center"
 				)}
 				auto shadow onPress={handler}
@@ -133,7 +132,6 @@ export default function HeroButton({submitSubscriber}:AddSubscriberProps){
 				onClose={closeHandler}
 				className={clsx(
 					styles.modal_bg,
-					inter.className
 				)}
 			>
 				<Modal.Header>	
