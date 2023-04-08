@@ -9,11 +9,11 @@ export class Subscription {
     }
 
 
-    async new_subscription(obj:any) {
+    async new_subscription(first_name:string, email:string) {
         return await this.api.post(`subscribe/new`,{
             body: JSON.stringify({
-                first_name: obj.first_name,
-                email: obj.email,
+                first_name: first_name,
+                email: email,
             })
         })
     }

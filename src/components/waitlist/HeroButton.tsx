@@ -27,7 +27,7 @@ export default function HeroButton(){
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [message, setMessage] = useState(null);
-	const [subscriber, setSubscriber] = useState<subscriber>({
+	const [subscriber_data, setSubscriber] = useState<subscriber>({
 		first_name: "",
 		email: "",
 	});
@@ -46,21 +46,29 @@ export default function HeroButton(){
 
 	const submitHandler = async(e: PressEvent) => {
 		setLoading(true);
-		let emptyvalues = getKeysWithoutValues(subscriber);
+		let emptyvalues = getKeysWithoutValues(subscriber_data);
 		if (emptyvalues.length > 0) {
 			setLoading(false);
 			return setVisible(true);
 		} else {
 			try {
-				const data = await apiClient.subscription.new_subscription(subscriber)
-				setLoading(false);
-				setError(null);
-				setMessage(data.message);
-				setSubscriber({
-					first_name: "",
-					email: "",
-				});
-				return showConfetti()
+				const data = await apiClient.subscription.new_subscription(subscriber_data.firstname, subscriber_data.email)
+				if(data.status == true){
+					setLoading(false);
+					setError(null);
+					setMessage(data.message);
+					setSubscriber({
+						first_name: "",
+						email: "",
+					});
+					return showConfetti()
+				} else{
+					setLoading(false);
+					setError(error.message);
+					setTimeout(() => {
+						setError(null);
+					}, 5000)
+				}
 			} catch (error:any) {
 				setLoading(false);
 				setError(error.message);
