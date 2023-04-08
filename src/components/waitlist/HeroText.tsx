@@ -34,7 +34,7 @@ export default function HeroText() {
 				"mt-[5rem] mb-[1rem] sm:mb-[2rem] md:mb-[3rem] lg:mb-[4rem] xl:mb-[5rem]",
 				"text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[5rem]",
 				"min-h-[14rem] sm:min-h-[18rem] md:min-h-[20rem] lg:min-h-[20rem] xl:min-h-[20rem]",
-				"max-w-[90%] text-left"
+				"text-left"
 			)}
 		>
 			<span className="font-bold">Signatures by Doyen</span>{" "}

@@ -62,7 +62,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="max-w-[90%]">
+        <div className="text-left max-w-[90%]">
           <HeroText />
         </div>
 
