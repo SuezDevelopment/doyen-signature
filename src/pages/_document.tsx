@@ -29,13 +29,13 @@ class MyDocument extends Document {
             <meta name="description" content="Our fashion clothing brand offers stylish clothing that celebrates and accentuates the beauty of every woman, regardless of their body shape or size. We cater to all body types, and our collections feature trendy and timeless pieces that are sure to make you feel confident and empowered." key="desc" />
             <link rel="icon" type="image/x-icon" href="https://signaturesbydoyen.org/favicon.ico" />
             <link rel="shortcut icon" type="image/x-icon" href="https://signaturesbydoyen.org/favicon.ico" />
-            <link rel="icon" type="image/png" sizes="32x32" href="https://signaturesbydoyen.org/favicon-32x32.png" />
-				<link rel="icon" type="image/png" sizes="16x16" href="https://signaturesbydoyen.org/favicon-16x16.png" />
-				<link rel='icon' sizes='192x192' type='image/jpeg' href='https://signaturesbydoyen.org/doyen-signature.jpg' />
-				<link rel='icon' sizes='512x512' type='image/jpeg' href='https://signaturesbydoyen.org/doyen-signature.jpg' />
+            <link rel="icon" type="image/png" sizes="32x32" href="https://signaturesbydoyen.org/doyen-signature.png'" />
+				<link rel="icon" type="image/png" sizes="16x16" href="https://signaturesbydoyen.org/doyen-signature.png'" />
+				<link rel='icon' sizes='192x192' type='image/png' href='https://signaturesbydoyen.org/doyen-signature.png' />
+				<link rel='icon' sizes='512x512' type='image/png' href='https://signaturesbydoyen.org/doyen-signature.png' />
 				<meta name="apple-mobile-web-app-title" content="Signatures by Doyen - BRIDALS▪️CUSTOM•MADE▪️LUXURY▪️TRAINING | Coming Soon" />
-				<link rel='apple-touch-icon' type='image/png' href='https://signaturesbydoyen.org/doyen-signature.jpg' />
-				<meta name='msapplication-square310x310logo' content='https://signaturesbydoyen.org/doyen-signature.jpg' />
+				<link rel='apple-touch-icon' type='image/png' href='https://signaturesbydoyen.org/doyen-signature.png' />
+				<meta name='msapplication-square310x310logo' content='https://signaturesbydoyen.org/doyen-signature.png' />
             <link rel='manifest' href='https://signaturesbydoyen.org/' />
 				<link rel='canonical' href='https://signaturesbydoyen.org/' />
 
@@ -51,10 +51,10 @@ class MyDocument extends Document {
 					property="og:description"
 					content="Our fashion clothing brand offers stylish clothing that celebrates and accentuates the beauty of every woman, regardless of their body shape or size. We cater to all body types, and our collections feature trendy and timeless pieces that are sure to make you feel confident and empowered."
 				/>
-				<meta property="og:image" content="https://signaturesbydoyen.org/doyen-signature.jpg" />
-				<meta property="og:image:type" content="image/jpeg" />
+				<meta property="og:image" content="https://signaturesbydoyen.org/doyen-signature.png" />
+				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:alt" content="Signatures by Doyen" />
-				<meta property="og:image:secure_url" content="https://signaturesbydoyen.org/doyen-signature.jpg" />
+				<meta property="og:image:secure_url" content="https://signaturesbydoyen.org/doyen-signature.png" />
 				<meta property="og:url" content="https://signaturesbydoyen.org/" />
 
             {/* twitter cards */}
@@ -69,7 +69,7 @@ class MyDocument extends Document {
 					name="twitter:description"
 					content="Our fashion clothing brand offers stylish clothing that celebrates and accentuates the beauty of every woman, regardless of their body shape or size. We cater to all body types, and our collections feature trendy and timeless pieces that are sure to make you feel confident and empowered."
 				/>
-				<meta name="twitter:image" content="https://signaturesbydoyen.org/doyen-signature.jpg" />
+				<meta name="twitter:image" content="https://signaturesbydoyen.org/doyen-signature.png" />
 				<meta name="twitter:image:alt" content="Signatures by Doyen" />
             {CssBaseline.flush()}
          </Head>
