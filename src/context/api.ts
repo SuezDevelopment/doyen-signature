@@ -2,9 +2,10 @@ import Axios, {AxiosInstance} from "axios";
 import {Cart} from './cart';
 import {BoundlessClient} from 'boundless-api-client';
 import { Subscription } from "./subscription";
+import dotenv from 'dotenv';
 
-const get_key = process.env.GET_KEY || ''
-const post_key = process.env.POST_KEY || ''
+const get_key = process.env.GET_KEY ? process.env.GET_KEY : ''
+const post_key = process.env.POST_KEY ? process.env.POST_KEY : ''
 
 
 const api: AxiosInstance = Axios.create({
