@@ -1,7 +1,12 @@
-export default function AdminLayout(){
-    return(
+interface Props {
+    children: React.ReactNode;
+}
+
+
+export default function AdminLayout(props:Props){
+    return (
         <div>
-            <h1>Admin Layout</h1>
+            {props.children}
         </div>
-    )
+    );
 }
