@@ -46,7 +46,7 @@ export default function HeroButton(){
 			return setVisible(true);
 		} else {
 			try {
-	const handler = () => setVisible(true);
+				console.log(subscriber_data.first_name, subscriber_data.email)
 				const data = await apiClient.subscription.new_subscription(subscriber_data.first_name, subscriber_data.email)
 				if(data.status == true){
 					setLoading(false);
