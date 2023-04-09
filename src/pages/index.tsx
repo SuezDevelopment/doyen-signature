@@ -13,11 +13,7 @@ const inter = Amarante({
 	subsets: ["latin-ext"],
 	weight: ["400"],
 });
-
-type subscriber = {
-  first_name: string
-  email: string
-}
+export {inter}
 
 export default function Home() {
   const [count, setCount] = useState(0);

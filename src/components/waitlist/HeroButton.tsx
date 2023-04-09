@@ -10,24 +10,18 @@ import { IconMail, IconUser } from "@tabler/icons-react";
 import { getKeysWithoutValues } from '@/utils/tools';
 import apiClient from '@/context/api';
 
-type WithChildren<T = {}> = 
-  T & { children?: React.ReactNode };
 
-type AddSubscriberProps = WithChildren<{
-  submitSubscriber: (obj:subscriber) => any
-}>
-
-type subscriber = {
+export type Subscriber = {
 	first_name: string
 	email: string
-  }
+}
 
 export default function HeroButton(){
 	const [visible, setVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [message, setMessage] = useState(null);
-	const [subscriber_data, setSubscriber] = useState<subscriber>({
+	const [subscriber_data, setSubscriber] = useState<Subscriber>({
 		first_name: "",
 		email: "",
 	});
@@ -52,6 +46,7 @@ export default function HeroButton(){
 			return setVisible(true);
 		} else {
 			try {
+	const handler = () => setVisible(true);
 				const data = await apiClient.subscription.new_subscription(subscriber_data.first_name, subscriber_data.email)
 				if(data.status == true){
 					setLoading(false);
@@ -93,7 +88,7 @@ export default function HeroButton(){
 				colors: ["#6AD991", "#F6C549", "#E65040", "#5B89F7", "#9688F2"],
 			};
 
-			(function frame() {
+			(function frame() {''
 				confetti({
 					...config,
 					angle: 60,
