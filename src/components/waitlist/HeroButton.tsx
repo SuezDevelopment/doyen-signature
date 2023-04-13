@@ -47,7 +47,16 @@ export default function HeroButton(){
 		} else {
 			try {
 				console.log(subscriber_data.first_name, subscriber_data.email)
-				const data = await apiClient.subscription.new_subscription(subscriber_data.first_name, subscriber_data.email)
+				const data = await fetch("",{
+					method: "POST",
+					headers:{
+						'Content-Type':'application/json'
+					},
+					body: JSON.stringify({
+						first_name: subscriber_data.first_name,
+						email: subscriber_data.email
+					}),
+				})
 				if(data.status == true){
 					setLoading(false);
 					setError(null);
