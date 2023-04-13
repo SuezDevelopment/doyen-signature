@@ -68,7 +68,7 @@ export default function HeroButton(){
 				return showConfetti()
 			} catch (error:any) {
 				setLoading(false);
-				setError(error.message);
+				setError(error.json().message);
 				setTimeout(() => {
 					setError(null);
 				}, 5000)
