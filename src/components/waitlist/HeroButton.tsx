@@ -47,7 +47,7 @@ export default function HeroButton(){
 		} else {
 			try {
 				console.log(subscriber_data.first_name, subscriber_data.email)
-				const data = await fetch("",{
+				const data = await fetch("https://api.signaturesbydoyen.org/v1/subscribe/new",{
 					method: "POST",
 					headers:{
 						'Content-Type':'application/json'
