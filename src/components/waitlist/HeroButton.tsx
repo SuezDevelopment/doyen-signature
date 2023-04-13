@@ -86,9 +86,9 @@ export default function HeroButton(){
 
     const showConfetti = useCallback(() => {
 		if (typeof window !== "undefined") {
-			const end = Date.now() + 100;
+			const end = Date.now() + 200;
 			const config: confetti.Options = {
-				particleCount: 35,
+				particleCount: 55,
 				startVelocity: 90,
 				angle: 60,
 				spread: 60,
