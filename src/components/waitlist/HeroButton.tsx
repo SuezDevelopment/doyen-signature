@@ -58,14 +58,22 @@ export default function HeroButton(){
 					}),
 				});
 				const data = await resp.json()
-				setLoading(false);
-				setError(null);
-				setMessage(data.message);
-				setSubscriber({
-					first_name: "",
-					email: "",
-				});
-				return showConfetti()
+				if (data.status == true){
+					setLoading(false);
+					setError(null);
+					setMessage(data.message);
+					setSubscriber({
+						first_name: "",
+						email: "",
+					});
+					return showConfetti()
+				} else {
+					setLoading(false);
+					setError(error.message);
+					setTimeout(() => {
+						setError(null);
+					}, 5000)
+				}
 			} catch (error:any) {
 				setLoading(false);
 				setError(error.message);
