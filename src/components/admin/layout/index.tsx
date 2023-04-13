@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLockedBody } from '.../hooks';
+import { useLockedBody } from '../../hooks';
 import {WrapperLayout} from './styles';
 import {SidebarContext} from './context';
 interface Props {
