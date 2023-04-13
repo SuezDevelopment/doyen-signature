@@ -54,25 +54,17 @@ export default function HeroButton(){
 					},
 					body: JSON.stringify({
 						first_name: subscriber_data.first_name,
-						email: subscriber_data.email
+						email: subscriber_data.email,
 					}),
-				})
-				if(data.status == true){
-					setLoading(false);
-					setError(null);
-					setMessage(data.message);
-					setSubscriber({
-						first_name: "",
-						email: "",
-					});
-					return showConfetti()
-				} else{
-					setLoading(false);
-					setError(data.message);
-					setTimeout(() => {
-						setError(null);
-					}, 5000)
-				}
+				});
+				setLoading(false);
+				setError(null);
+				setMessage(data.message);
+				setSubscriber({
+					first_name: "",
+					email: "",
+				});
+				return showConfetti()
 			} catch (error:any) {
 				setLoading(false);
 				setError(error.message);
