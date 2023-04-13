@@ -57,7 +57,7 @@ export default function HeroButton(){
 						email: subscriber_data.email,
 					}),
 				});
-				const data = resp.json()
+				const data = await resp.json()
 				setLoading(false);
 				setError(null);
 				setMessage(data.message);
@@ -68,7 +68,7 @@ export default function HeroButton(){
 				return showConfetti()
 			} catch (error:any) {
 				setLoading(false);
-				setError(error.json().message);
+				setError(error.message);
 				setTimeout(() => {
 					setError(null);
 				}, 5000)
