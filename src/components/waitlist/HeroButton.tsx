@@ -47,7 +47,7 @@ export default function HeroButton(){
 		} else {
 			try {
 				console.log(subscriber_data.first_name, subscriber_data.email)
-				const data = await fetch("https://api.signaturesbydoyen.org/v1/subscribe/new",{
+				const resp = await fetch("https://api.signaturesbydoyen.org/v1/subscribe/new",{
 					method: "POST",
 					headers:{
 						'Content-Type':'application/json'
@@ -57,6 +57,7 @@ export default function HeroButton(){
 						email: subscriber_data.email,
 					}),
 				});
+				const data = resp.json()
 				setLoading(false);
 				setError(null);
 				setMessage(data.message);
